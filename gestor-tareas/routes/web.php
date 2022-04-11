@@ -14,12 +14,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 //Routas de registro, login, recordar pass, etc...
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Routa vista principal
+Route::get('/',[App\Http\Controllers\InicioController::class, 'index']);
+
+
+/* Route::get('/app',[App\Http\Controllers\TareasController::class, 'index'])->name('home'); */
