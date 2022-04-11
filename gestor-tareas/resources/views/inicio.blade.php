@@ -3,12 +3,8 @@
 @section('content')
 
 <div class="container ">
-
-    <div class="dark-primary-color ">
-
-
-    </div>
-
-</div>
+    <body class="dark-primary-color">
+    
+    </body>
 
 @endsection
