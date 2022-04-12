@@ -21,12 +21,16 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
 </head>
-<body>
+<body >
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light dark-primary-color text-primary-color">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ 'Gestor de Tareas' }}
+                    <!-- {{ 'Gestor de Tareas' }} -->
+                    <div class="d-flex align-items-center">
+                        <img class="w-25" src="../img/Grow_Up.png" alt="" srcset="">
+                        <p class="text-primary-color">Gestor de Tareas</p>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -44,13 +48,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Inicio de Sesión') }}</a>
+                                    <a class="nav-link text-primary-color" href="{{ route('login') }}">{{ __('Inicio de Sesión') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
+                                <li class="nav-item text-primary-color ">
+                                    <a class="nav-link text-primary-color" href="{{ route('register') }}">{{ __('Registro') }}</a>
                                 </li>
                             @endif
                         @else
