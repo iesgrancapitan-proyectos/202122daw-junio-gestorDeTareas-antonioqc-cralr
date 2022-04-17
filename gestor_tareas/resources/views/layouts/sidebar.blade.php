@@ -3,31 +3,24 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+                <h3>Gestor de Tareas</h3>
             </div>
 
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <a href="#">Hoy</a>
+                </li>
+                <li>
+                    <a href="#">Proximas</a>
+                </li>
+                <li>
+                    <a href="#proyectosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proyectos</a>
+                    <ul class="collapse list-unstyled" id="proyectosSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            <a href="#">Page 1</a> {{-- Foreach para que se muestren los proyectos --}}
                         </li>
                         <li>
                             <a href="#">Page 2</a>
@@ -37,12 +30,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+              
             </ul>
         </nav>
 
