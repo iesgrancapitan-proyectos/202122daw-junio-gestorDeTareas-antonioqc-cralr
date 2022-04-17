@@ -1,0 +1,21 @@
+#buttonAddTask{
+    float: right;
+}
+
+#divTask{
+    margin-top: 5rem !important;
+    display: none;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.inputsTask{
+    background-color: #fafafa;
+    border: 0;
+    border-bottom: 1px solid black !important;
+    outline: none;
+}
+
+.inputsTask::-webkit-input-placeholder {
+        text-align: center;
+}
