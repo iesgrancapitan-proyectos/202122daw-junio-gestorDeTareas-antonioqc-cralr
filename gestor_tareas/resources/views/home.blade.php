@@ -10,9 +10,24 @@
     </div>
 
     <div class="row justify-content-center">
+        <div class="text-center" id="allTasks">
+            @foreach ($tareas as $tarea)
+            <ul>
+                <li>{{$tarea->name}}</li>
+                <li>{{$tarea->description}}</li>
+                <li>{{$tarea->date_finally}}</li>
+            </ul>
+            @endforeach
+        </div>
+    </div>
+
+
+    {{-- Formulario creación tareas --}}
+    <div class="row justify-content-center">
         <div class="text-center" id="divTask">
             <form method="post" action="{{route('crearTarea')}}">
                 @csrf
+                <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;">
                 <label for="nombre">
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="inputsTask">
                 </label><br>
@@ -37,10 +52,12 @@
     $(document).ready(function () {
             $('#buttonAddTask').on('click', function () {
                 $('#divTask').css('display','block');
+                $('#allTasks').css('display','none');
             });
 
             $('#addTask').on('click', function () {
                 $('#divTask').css('display','none');
+                $('#allTasks').css('display','block');
             });
 
 

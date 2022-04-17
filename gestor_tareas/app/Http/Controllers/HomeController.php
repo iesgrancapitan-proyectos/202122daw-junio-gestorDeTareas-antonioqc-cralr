@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -23,17 +24,21 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $tareas = Tarea::all();
+   
+        return view('home')->with(compact('tareas'));
     }
 
 
     public function crearTarea(Request $request){
         $tarea = new Tarea;
 
+        $tarea->id_user = $request->id;
         $tarea->name = $request->nombre;
         $tarea->description = $request->descripcion;
         $tarea->date_finally = $request->finalizacion;
+        $tarea->date_create = Carbon::now();
 
         $tarea->save();
         return redirect()->route('home');

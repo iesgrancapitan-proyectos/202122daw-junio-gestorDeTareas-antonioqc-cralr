@@ -19,3 +19,7 @@
 .inputsTask::-webkit-input-placeholder {
         text-align: center;
 }
+
+#allTaks{
+    display: block;
+}

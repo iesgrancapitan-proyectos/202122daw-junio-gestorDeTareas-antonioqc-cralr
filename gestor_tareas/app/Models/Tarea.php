@@ -8,6 +8,8 @@ class Tarea extends Model
 {
     protected $table='tasks';
 
+    public $timestamps = false;
+
     protected $fillable=['id_user','name','description','date_create','date_update','date_finally'];
 
     public function user(){
