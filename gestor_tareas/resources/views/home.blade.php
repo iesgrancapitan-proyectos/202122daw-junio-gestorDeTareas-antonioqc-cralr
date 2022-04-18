@@ -14,8 +14,8 @@
             @foreach ($tareas as $tarea)
             <ul>
                 <li>{{$tarea->name}}</li>
-                <li>{{$tarea->description}}</li>
-                <li>{{$tarea->date_finally}}</li>
+                {{-- <li>{{$tarea->description}}</li>
+                <li>{{$tarea->date_finally}}</li> --}}
             </ul>
             @endforeach
         </div>
@@ -61,7 +61,6 @@
                 $('#allTasks').css('display','block');
                 $('#nombre, #descripcion, #finalizacion').val("");
             })
-
         });
 
 
