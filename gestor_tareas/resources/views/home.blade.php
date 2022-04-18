@@ -75,7 +75,6 @@
             $('.tareaName').on('click', function () {
                 $('.infotarea').css('display','block');
             });
-                
             $('#nombre, #descripcion, #finalizacion').val("");
     });
 
