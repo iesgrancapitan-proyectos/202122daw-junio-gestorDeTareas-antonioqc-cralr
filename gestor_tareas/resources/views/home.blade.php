@@ -13,12 +13,18 @@
         <div class="text-center" id="allTasks">
             @foreach ($tareas as $tarea)
             <ul>
+
+                <li>{{$tarea->name}}</li>
+                {{-- <li>{{$tarea->description}}</li>
+                <li>{{$tarea->date_finally}}</li> --}}
+
                 <li class="list-unstyled">{{$tarea->name}}</li>
                 <hr></hr>
                 <div class="infotarea">
                     <div class="infotarea list-unstyled">{{$tarea->description}}</div>
                     <div class="infotarea list-unstyled">{{$tarea->date_finally}}</div>
                 </div>
+
             </ul>
             @endforeach
         </div>
@@ -70,7 +76,6 @@
             });
                 $('#nombre, #descripcion, #finalizacion').val("");
             })
-
         });
 
 
