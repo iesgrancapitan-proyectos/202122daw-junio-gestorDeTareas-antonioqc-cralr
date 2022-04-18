@@ -27,17 +27,18 @@
         <div class="text-center" id="divTask">
             <form method="post" action="{{route('crearTarea')}}">
                 @csrf
+                <span class="boton-cerrar"><input type="button" value="X"></span>
                 <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;">
                 <label for="nombre">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="inputsTask">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="inputsTask" required>
                 </label><br>
                 <label for="descripcion" class="mt-4">
-                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" class="inputsTask">
+                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" class="inputsTask" required>
                 </label><br>
                 <label for="finalizacion" class="mt-4">
-                    <input type="date" name="finalizacion" id="finalizacion" placeholder="Fecha Finalización" class="inputsTask">
+                    <input type="date" name="finalizacion" id="finalizacion" placeholder="Fecha Finalización" class="inputsTask" required>
                 </label><br>
-                <button id="addTask" class="btn btn-primary mt-4 mb-3">Añadir Tarea</button>
+                <button type="submit" class="btn btn-primary mb-4 mt-3" >Añadir Tarea</button>
             </form>
         </div>
     </div>
@@ -55,11 +56,11 @@
                 $('#allTasks').css('display','none');
             });
 
-            $('#addTask').on('click', function () {
+            $('.boton-cerrar').on('click',function() {
                 $('#divTask').css('display','none');
                 $('#allTasks').css('display','block');
-            });
-
+                $('#nombre, #descripcion, #finalizacion').val("");
+            })
 
         });
 
