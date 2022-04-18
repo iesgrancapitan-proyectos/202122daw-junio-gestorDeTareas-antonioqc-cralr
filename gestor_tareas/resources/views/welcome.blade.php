@@ -104,7 +104,7 @@
                                 <a href="#!"><i class="bi-telegram fs-3"></i></a>
                             </li>
                         </ul>
-                        <ul>Rafael Miguel Cruz</ul>
+                        <ul>Rafael Miguel Cruz Álvarez</ul>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-3">
@@ -118,7 +118,7 @@
                                 <a href="#!"><i class="bi-telegram fs-3"></i></a>
                             </li>
                         </ul>
-                        <ul>Antonio Quesada Cuadrado</ul>
+                        <ul>Antonio Quesada</ul>
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{asset ('js/scripts.js')}}"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
