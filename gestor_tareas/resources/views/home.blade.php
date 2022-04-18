@@ -71,12 +71,13 @@
             });
             
             $('.infotarea').css('display','none');
+            
             $('.tareaName').on('click', function () {
                 $('.infotarea').css('display','block');
             });
-                $('#nombre, #descripcion, #finalizacion').val("");
-            })
-        });
+                
+            $('#nombre, #descripcion, #finalizacion').val("");
+    });
 
 
 </script>
