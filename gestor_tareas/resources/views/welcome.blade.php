@@ -118,7 +118,7 @@
                                 <a href="#!"><i class="bi-telegram fs-3"></i></a>
                             </li>
                         </ul>
-                        <ul>Antonio Quesada</ul>
+                        <ul>Antonio Quesada Cuadrado</ul>
                     </div>
                 </div>
             </div>
