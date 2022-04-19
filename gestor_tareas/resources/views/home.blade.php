@@ -5,15 +5,16 @@
 
     <div class="row">
         <div class="d-grid gap-2 d-md-block ">
-            <button class="btn btn-primary" type="button" id="buttonAddTask">+ Crear Tarea</button>
+            <button class="btn btn-primary" type="button" id="buttonAddTask">+</button>
         </div>
     </div>
 
     <div class="row justify-content-center">
         <div class="text-center" id="allTasks">
+            
             @foreach ($tareas as $tarea)
+            <input type="hidden" id="id-tarea" value="{{$tarea->id}}" style="display: none;">
             <ul>
-
                 <li>{{$tarea->name}}</li>
                 {{-- <li>{{$tarea->description}}</li>
                 <li>{{$tarea->date_finally}}</li> --}}
@@ -36,18 +37,35 @@
         <div class="text-center" id="divTask">
             <form method="post" action="{{route('crearTarea')}}">
                 @csrf
-                <span class="boton-cerrar"><input type="button" value="X"></span>
+                <div class="form-group row mt-3">
+                    <h2>Crea tu tarea</h2>
+                    <span class="boton-cerrar"><input type="button" value="X"></span>
+                </div>
                 <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;">
-                <label for="nombre">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="inputsTask" required>
-                </label><br>
-                <label for="descripcion" class="mt-4">
-                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" class="inputsTask" required>
-                </label><br>
-                <label for="finalizacion" class="mt-4">
-                    <input type="date" name="finalizacion" id="finalizacion" placeholder="Fecha Finalización" class="inputsTask" required>
-                </label><br>
-                <button type="submit" class="btn btn-primary mb-4 mt-3" >Añadir Tarea</button>
+                
+                <div class="form-group row">
+                    <label for="nombre" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-8 mb-2">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="descripcion" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-8 mb-2">
+                        <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Descripción" ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="finalizacion" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-8 mb-2">
+                        <input type="date" class="form-control" name="finalizacion" id="finalizacion" placeholder="Fecha Finalización" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary mb-4 mt-3" >Añadir</button>
+                </div>
             </form>
         </div>
     </div>
@@ -60,6 +78,7 @@
 <script>
 
     $(document).ready(function () {
+            console.log($('#id-tarea').val());
             $('#buttonAddTask').on('click', function () {
                 $('#divTask').css('display','block');
                 $('#allTasks').css('display','none');

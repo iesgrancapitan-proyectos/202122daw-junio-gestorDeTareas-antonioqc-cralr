@@ -36,7 +36,11 @@ class HomeController extends Controller
 
         $tarea->id_user = $request->id;
         $tarea->name = $request->nombre;
-        $tarea->description = $request->descripcion;
+        if($request->descripcion == ""){
+            $tarea->description = "";
+        }else{
+            $tarea->description = $request->descripcion;
+        }
         $tarea->date_finally = $request->finalizacion;
         $tarea->date_create = Carbon::now();
 
