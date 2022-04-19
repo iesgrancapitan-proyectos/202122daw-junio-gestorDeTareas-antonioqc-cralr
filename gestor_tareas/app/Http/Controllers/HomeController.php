@@ -26,7 +26,6 @@ class HomeController extends Controller
     public function index()
     {   
         $tareas = Tarea::all();
-   
         return view('home')->with(compact('tareas'));
     }
 
