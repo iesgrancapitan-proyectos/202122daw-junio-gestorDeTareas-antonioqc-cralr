@@ -10,8 +10,7 @@
     </div>
     <br></br>
     <div class="row">
-        <div class="text-center" id="allTasks">
-            
+        <div class="text-center" id="allTasks">           
             @php
                 $total = $tareas->count();
                 echo '<input type="hidden" value="'.$total.'" style="display: none;" id="totaltarea">';
@@ -81,7 +80,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function () {
- 
 
             idtarea = $('#idtarea').val();
             nombreTarea = $('#nombretarea').val();
@@ -91,14 +89,9 @@
                 $(".tarea").attr("id","tarea"+idtarea);
             }
             
-            
             $('#buttonAddTask').on('click', function () {
                 $('#divTask').css('display','block');
-                $('#allTasks').css('display','none');
-            });
 
-            $('.boton-cerrar').on('click',function() {
-                $('#divTask').css('display','none');
                 $('#allTasks').css('display','block');
             });
             
@@ -112,7 +105,6 @@
  
             $('#nombre, #descripcion, #finalizacion').val("");
     });
-
 </script>
 
 
