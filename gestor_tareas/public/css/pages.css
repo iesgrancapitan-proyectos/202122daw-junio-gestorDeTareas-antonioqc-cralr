@@ -1,8 +1,20 @@
 #buttonAddTask{
     float: right;
 }
+#buttonAddProyect{
+    float: right;
+    margin-right: 5px;
+}
 
 #divTask{
+    margin-top: 5rem !important;
+    display: none;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}
+
+#divProyect{
     margin-top: 5rem !important;
     display: none;
     border: 1px solid black;

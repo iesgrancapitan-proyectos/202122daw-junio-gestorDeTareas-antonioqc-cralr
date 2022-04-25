@@ -48,6 +48,24 @@ class HomeController extends Controller
 
     }
 
+   /*  public function crearProyecto(Request $request){
+        $tarea = new Tarea;
+
+        $tarea->id_user = $request->id;
+        $tarea->name = $request->nombre;
+        if($request->descripcion == ""){
+            $tarea->description = "";
+        }else{
+            $tarea->description = $request->descripcion;
+        }
+        $tarea->date_finally = $request->finalizacion;
+        $tarea->date_create = Carbon::now();
+
+        $tarea->save();
+        return redirect()->route('home');
+
+    } */
+
 
 
 
