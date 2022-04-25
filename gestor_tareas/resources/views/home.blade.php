@@ -110,6 +110,3 @@
             $('#nombre, #descripcion, #finalizacion').val("");
     });
 </script>
-
-
-
