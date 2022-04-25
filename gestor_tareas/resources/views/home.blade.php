@@ -11,7 +11,7 @@
     <br></br>
     <div class="row">
         <div class="text-center" id="allTasks">
-            
+
             @foreach ($tareas as $tarea)
             <!-- <ul> -->
                 <!-- <li>{{$tarea->name}}</li>
@@ -85,15 +85,10 @@
 <script>
     $(document).ready(function () {
         let i = 0;
-
             console.log($('#id-tarea').val());
             $('#buttonAddTask').on('click', function () {
                 $('#divTask').css('display','block');
-                $('#allTasks').css('display','none');
-            });
 
-            $('.boton-cerrar').on('click',function() {
-                $('#divTask').css('display','none');
                 $('#allTasks').css('display','block');
             });
             
@@ -107,7 +102,6 @@
  
             $('#nombre, #descripcion, #finalizacion').val("");
     });
-
 </script>
 
 
