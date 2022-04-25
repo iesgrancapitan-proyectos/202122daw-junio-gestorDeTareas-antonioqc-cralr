@@ -10,8 +10,8 @@
     </div>
     <br></br>
     <div class="row">
-        <div class="text-center" id="allTasks">
-    
+        <div class="text-center" id="allTasks">           
+
             @php
                 $total = $tareas->count();
                 echo '<input type="hidden" value="'.$total.'" style="display: none;" id="totaltarea">';
