@@ -12,13 +12,16 @@
     <div class="row">
         <div class="text-center" id="allTasks">
             
-        
-            @foreach ($tareas as $tarea)
-                <input type="hidden" id="nombre-tarea" value="{{$tarea->name}}" style="display: none;">
-                
+            @php
+                $total = $tareas->count();
+                echo '<input type="hidden" value="'.$total.'" style="display: none;" id="totaltarea">';
+            @endphp
 
-                    {{-- <div class="tarea mb-2 fs-4">{{$tarea->name}}</div> --}}
-                    <div class="descripcion mb-2">{{$tarea->description}}</div>
+        @foreach ($tareas as $tarea)
+            <input type="hidden" name="idtarea" value="{{$tarea->id}}" style="display: none;" id="idtarea">
+            <input type="hidden" name="nombretarea" value="{{$tarea->name}}" style="display: none;" id="nombretarea">
+                    <div class="tarea mb-2 fs-4">{{$tarea->name}}</div>
+                    <div class="descripcion mb-2" id="descripciontarea">{{$tarea->description}}</div>
                     <div class="iconos">
                         <div>{{$tarea->date_finally}}</div>
                         <div>
@@ -80,11 +83,13 @@
     $(document).ready(function () {
  
 
-            idtarea = $('#id-tarea').val();
-            nombreTarea = $('#nombre-tarea').val();
+            idtarea = $('#idtarea').val();
+            nombreTarea = $('#nombretarea').val();
+            totalTarea = $('#totaltarea').val();
             
-            $(".descripcion").before("<div class=tarea>"+nombreTarea+"</div>");
-            $('.tarea').attr("id","tarea"+idtarea);
+            for(i=0;i<totalTarea;i++){
+                $(".tarea").attr("id","tarea"+idtarea);
+            }
             
             
             $('#buttonAddTask').on('click', function () {
@@ -100,7 +105,7 @@
             $('.descripcion, .iconos').css('display','none');
             
             $('#tarea'+idtarea).on('click', function () {
-                $('.descripcion').css('display','block');
+                $('#descripciontarea').css('display','block');
                 $('.iconos').css('display','grid')
                             .css('grid-template-columns', 'repeat(2,1fr)')
             });
