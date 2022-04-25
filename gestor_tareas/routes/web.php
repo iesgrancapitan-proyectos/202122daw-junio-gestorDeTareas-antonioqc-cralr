@@ -22,3 +22,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home/crearTarea', [App\Http\Controllers\HomeController::class, 'crearTarea'])->name('crearTarea');
+
+Route::post('/home/crearProyecto', [App\Http\Controllers\HomeController::class, 'crearProyecto'])->name('crearProyecto');
