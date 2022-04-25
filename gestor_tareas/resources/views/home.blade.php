@@ -11,6 +11,7 @@
     <br></br>
     <div class="row">
         <div class="text-center" id="allTasks">           
+
             @php
                 $total = $tareas->count();
                 echo '<input type="hidden" value="'.$total.'" style="display: none;" id="totaltarea">';
@@ -35,7 +36,7 @@
     </div>
 
 
-    {{-- Formulario creación tareas --}}
+    {{-- Formulario creación de las tareas --}}
     <div class="row justify-content-center">
         <div class="text-center" id="divTask">
             <form method="post" action="{{route('crearTarea')}}">
@@ -80,7 +81,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function () {
-
             idtarea = $('#idtarea').val();
             nombreTarea = $('#nombretarea').val();
             totalTarea = $('#totaltarea').val();
