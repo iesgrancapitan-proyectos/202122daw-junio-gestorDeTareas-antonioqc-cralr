@@ -36,7 +36,7 @@
     </div>
 
 
-    {{-- Formulario creación tareas --}}
+    {{-- Formulario creación de las tareas --}}
     <div class="row justify-content-center">
         <div class="text-center" id="divTask">
             <form method="post" action="{{route('crearTarea')}}">
