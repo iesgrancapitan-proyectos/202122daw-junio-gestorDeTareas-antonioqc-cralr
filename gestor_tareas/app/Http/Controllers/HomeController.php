@@ -45,26 +45,16 @@ class HomeController extends Controller
 
         $tarea->save();
         return redirect()->route('home');
-
     }
 
-   /*  public function crearProyecto(Request $request){
-        $tarea = new Tarea;
+    public function eliminarTarea($id)
+    {
+        $tarea = Tarea::find($id);
 
-        $tarea->id_user = $request->id;
-        $tarea->name = $request->nombre;
-        if($request->descripcion == ""){
-            $tarea->description = "";
-        }else{
-            $tarea->description = $request->descripcion;
-        }
-        $tarea->date_finally = $request->finalizacion;
-        $tarea->date_create = Carbon::now();
+        $tarea->delete();
 
-        $tarea->save();
         return redirect()->route('home');
-
-    } */
+    }
 
 
 

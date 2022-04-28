@@ -11,13 +11,24 @@
     </div>
     <br>
     <div class="row">           
-        <div class="">
+        <div class="" id="allTasks">
             @foreach ($tareas as $tarea)
                     <div class="tarea mb-2 fs-4" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
                     <div class="collapse" id="collapse-{{$tarea->id}}">
                         <div class="card card-body col-sm-6">
                             Descripción: {{$tarea->description}}<br>
                             Fecha Finalización: {{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}
+
+                            <form action="{{ route('tarea.destroy', $tarea->id) }}" method ="POST" >
+                                @csrf
+                                {{ method_field('DELETE') }}
+                                <div>
+                                    <button class="btn" onclick="return confirm('¿Seguro que deseas eliminarlo?')"><img src="assets/img/eliminar.svg"></button>
+                                    {{-- <a href="#"><img src="assets/img/lapiz.svg"></a> --}}
+                                    {{--< a href="#"><img src="assets/img/comentario.png"></a> --}}
+                                </div>
+                            </form>
+                            
                         </div>
                     </div>
             @endforeach
