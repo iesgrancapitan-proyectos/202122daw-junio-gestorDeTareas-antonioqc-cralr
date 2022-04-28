@@ -24,3 +24,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/home/crearTarea', [App\Http\Controllers\HomeController::class, 'crearTarea'])->name('crearTarea');
 
 Route::post('/home/crearProyecto', [App\Http\Controllers\HomeController::class, 'crearProyecto'])->name('crearProyecto');
+
+Route::delete('/home/{id}', [App\Http\Controllers\HomeController::class, 'eliminarTarea'])->name('tarea.destroy');
