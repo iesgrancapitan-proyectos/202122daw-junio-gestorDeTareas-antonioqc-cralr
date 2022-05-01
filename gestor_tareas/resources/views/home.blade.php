@@ -13,7 +13,7 @@
     <div class="row">           
         <div class="" id="allTasks">
             @foreach ($tareas as $tarea)
-                    <div class="tarea mb-2 fs-4" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
+                    <div class="tarea mb-2 fs-4" id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
                     <div class="collapse" id="collapse-{{$tarea->id}}">
                         <div class="card card-body col-sm-6">
                             Descripción: {{$tarea->description}}<br>
@@ -140,6 +140,20 @@
  
             $('#nombre, #descripcion, #finalizacion').val("");
 
+            $('#tareaHoy-'+$('#hoy').val()).on("click",function(){
+                $hoy = $('#hoy').val();
+                $valor = $('#tarea-'+$hoy).data('value');
+        
+
+                if($valor == $hoy){
+                    $('#tarea-'+$valor).css("display","block");
+                }else if($valor != $hoy){
+                    $('#tarea-'+$valor).css("display","none");
+                }
+
+               /* if()
+                $('#tarea-'+$hoy).css("display","block"); */
+            })
             
     });
 </script>

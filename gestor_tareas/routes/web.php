@@ -20,9 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/home/crearTarea', [App\Http\Controllers\HomeController::class, 'crearTarea'])->name('crearTarea');
+Route::get('/home', [App\Http\Controllers\TareasController::class, 'index'])->name('home');
+Route::post('/home/crearTarea', [App\Http\Controllers\TareasController::class, 'crearTarea'])->name('crearTarea');
+Route::post('/home/crearProyecto', [App\Http\Controllers\TareasController::class, 'crearProyecto'])->name('crearProyecto');
+Route::delete('/home/{id}', [App\Http\Controllers\TareasController::class, 'eliminarTarea'])->name('tarea.destroy');
 
-Route::post('/home/crearProyecto', [App\Http\Controllers\HomeController::class, 'crearProyecto'])->name('crearProyecto');
-
-Route::delete('/home/{id}', [App\Http\Controllers\HomeController::class, 'eliminarTarea'])->name('tarea.destroy');

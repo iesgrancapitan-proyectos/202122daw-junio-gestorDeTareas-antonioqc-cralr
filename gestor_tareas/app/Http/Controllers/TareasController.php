@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Tarea;
 use Carbon\Carbon;
 
-class HomeController extends Controller
+class TareasController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,7 +26,9 @@ class HomeController extends Controller
     public function index()
     {   
         $tareas = Tarea::get();
-        return view('home')->with(compact('tareas'));
+        $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
+    
+        return view('home')->with(compact('tareas','tareasHoy'));
     }
 
 
@@ -56,6 +58,14 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
+
+    public function getTareasHoy(){
+        $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
+        
+        return view('home')->with(compact('tareasHoy'));
+
+
+    }
 
 
 
