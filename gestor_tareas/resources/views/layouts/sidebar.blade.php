@@ -8,7 +8,7 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+                    <a href="{{ route('home') }}" >Home</a>
                 </li>
                 <li>
                     <a href="#tareasHoy" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hoy</a>
@@ -27,10 +27,10 @@
                     <a href="#">Proximas</a>
                 </li>
                 <li>
-                    <a href="#proyectosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Proyectos</a>
-                    <ul class="collapse list-unstyled" id="proyectosSubmenu">
+                    <a href="{{ route('proyectos') }}">Proyectos</a>
+                    {{-- <ul class="collapse list-unstyled" id="proyectosSubmenu">
                         <li>
-                            <a href="#">Page 1</a> {{-- Foreach para que se muestren los proyectos --}}
+                            <a href="#">Page 1</a> 
                         </li>
                         <li>
                             <a href="#">Page 2</a>
@@ -38,10 +38,21 @@
                         <li>
                             <a href="#">Page 3</a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </li>
               
             </ul>
+            {{-- <ul class="list-unstyled components">
+                <li>
+                    <div class="row">
+                        <div class="">
+                            <button class="btn btn-primary" type="button" id="buttonAddTask">Añadir Tarea</button>
+                            <button class="btn btn-primary" type="button" id="buttonAddProyect">Añadir Proyecto</button>
+                        </div>
+                    </div> 
+                </li>
+                
+            </ul> --}}
         </nav>
     </div>
 
@@ -58,5 +69,17 @@
                 $('#sidebar').toggleClass('active');
                 $(this).toggleClass('active');
             });
+
+            $('#todasTareas').on("click",function(){
+                console.log("hola");
+                $tareas = document.getElementsByClassName("tarea");
+                $arrayOfElements = Array.from($tareas);
+
+                for (let i = 0; i < $arrayOfElements.length; i++) {
+                    const element = $arrayOfElements[i];
+                        $('#tarea-'+element.dataset.value).css("display","block");
+                    }
+                });
+
         });
     </script>
