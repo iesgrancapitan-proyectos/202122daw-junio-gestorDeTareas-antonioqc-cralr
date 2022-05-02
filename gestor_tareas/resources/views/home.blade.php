@@ -5,13 +5,13 @@
 
     <div class="row">
         <div class="d-grid d-md-block ">
-            <button class="btn btn-primary" type="button" id="buttonAddTask">Añadir Tarea</button>
-            <button class="btn btn-primary" type="button" id="buttonAddProyect">Añadir Proyecto</button>
+                <button class="btn btn-primary" type="button" id="buttonAddTask">Añadir Tarea</button>
+                {{-- <button class="btn btn-primary" type="button" id="buttonAddProyect">Añadir Proyecto</button> --}}
         </div>
     </div>
     <br>
     <div class="row">           
-        <div class="" id="allTasks">
+        <div id="allTasks">
             @foreach ($tareas as $tarea)
                     <div class="tarea mb-2 fs-4" id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
                     <div class="collapse" id="collapse-{{$tarea->id}}">
@@ -38,7 +38,7 @@
 
     {{-- Formulario creación de las tareas --}}
     <div class="row justify-content-center">
-        <div class="text-center" id="divTask">
+        <div class="text-center" id="formTask">
             <form method="post" action="{{route('crearTarea')}}">
                 @csrf
                 <div class="form-group row mt-3">
@@ -74,8 +74,8 @@
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="text-center" id="divProyect">
+    {{-- <div class="row justify-content-center">
+        <div class="text-center" id="formProject">
             <form method="post" action="{{route('crearProyecto')}}">
                 @csrf
                 <div class="form-group row mt-3">
@@ -108,7 +108,7 @@
                 <button type="submit" class="btn btn-primary mb-4 mt-3" >Añadir</button>
                 </div>
             </form>
-        </div>
+        </div> --}}
     </div>
 
 
@@ -119,20 +119,20 @@
 <script>
     $(document).ready(function () {
             $('#buttonAddTask').on('click', function () {
-                $('#divTask').css('display','block');
-                $('#divProyect').css('display','none');
+                $('#formTask').css('display','block');
+                //$('#formProject').css('display','none');
                 $('#allTasks').css('display','none');
             });
 
-            $('#buttonAddProyect').on('click', function () {
-                $('#divProyect').css('display','block');
-                $('#divTask').css('display','none');
+          /*   $('#buttonAddProyect').on('click', function () {
+                $('#formProject').css('display','block');
+                $('#formTask').css('display','none');
                 $('#allTasks').css('display','none');
-            });
+            }); */
 
             $('.boton-cerrar').on('click',function() {
-                $('#divTask').css('display','none');
-                $('#divProyect').css('display','none');
+                $('#formTask').css('display','none');
+                //$('#formProject').css('display','none');
                 $('#allTasks').css('display','block');
             });
             
@@ -141,18 +141,21 @@
             $('#nombre, #descripcion, #finalizacion').val("");
 
             $('#tareaHoy-'+$('#hoy').val()).on("click",function(){
-                $hoy = $('#hoy').val();
-                $valor = $('#tarea-'+$hoy).data('value');
-        
+                $hoy = parseInt($('#hoy').val());
 
-                if($valor == $hoy){
-                    $('#tarea-'+$valor).css("display","block");
-                }else if($valor != $hoy){
-                    $('#tarea-'+$valor).css("display","none");
-                }
+                $tareas = document.getElementsByClassName("tarea");
+                $arrayOfElements = Array.from($tareas);
 
-               /* if()
-                $('#tarea-'+$hoy).css("display","block"); */
+                for (let i = 0; i < $arrayOfElements.length; i++) {
+                    const element = $arrayOfElements[i];
+
+                    if(element.dataset.value == $hoy){
+                        $('#tarea-'+element.dataset.value).css("display","block");
+                    }
+                    if(element.dataset.value != $hoy){
+                        $('#tarea-'+element.dataset.value).css("display","none");
+                    }
+                }  
             })
             
     });

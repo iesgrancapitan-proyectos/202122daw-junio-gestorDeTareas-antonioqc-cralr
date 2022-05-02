@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function project(){
+        return $this->belongsToMany('App\Models\Proyecto','user_project')
+            ->withPivot('id_project');
+    }   
+
+
 }
