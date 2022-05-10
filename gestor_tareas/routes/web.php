@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\TareasController::class, 'index'])->name('home');
 Route::post('/home/crearTarea', [App\Http\Controllers\TareasController::class, 'crearTarea'])->name('crearTarea');
-Route::post('/home/crearProyecto', [App\Http\Controllers\TareasController::class, 'crearProyecto'])->name('crearProyecto');
 Route::delete('/home/{id}', [App\Http\Controllers\TareasController::class, 'eliminarTarea'])->name('tarea.destroy');
 
 Route::get('/home/proyectos', [App\Http\Controllers\ProyectosController::class, 'index'])->name('proyectos');
+Route::post('/home/crearProyecto', [App\Http\Controllers\ProyectosController::class, 'crearProyecto'])->name('crearProyecto');

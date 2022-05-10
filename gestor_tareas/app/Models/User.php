@@ -43,8 +43,7 @@ class User extends Authenticatable
     ];
 
     public function project(){
-        return $this->belongsToMany('App\Models\Proyecto','user_project')
-            ->withPivot('id_project');
+        return $this->belongsToMany('App\Models\Proyecto','user_project');
     }   
 
 
