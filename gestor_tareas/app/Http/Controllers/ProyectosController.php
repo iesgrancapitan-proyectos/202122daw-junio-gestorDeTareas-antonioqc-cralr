@@ -36,6 +36,19 @@ class ProyectosController extends Controller
     public function crearProyecto(Request $request){
         $proyecto = new Proyecto;
 
+        $proyecto->name = $request->nombre;
+        if($request->descripcion == ""){
+            $proyecto->description = "";
+        }else{
+            $proyecto->description = $request->descripcion;
+        }
+        $proyecto->date_finally = $request->finalizacion;
+        $proyecto->date_create = Carbon::now();
+
+        $proyecto->save();
+        $proyecto->user()->attach(5);
+        return redirect()->back();
+
     }
 
 }
