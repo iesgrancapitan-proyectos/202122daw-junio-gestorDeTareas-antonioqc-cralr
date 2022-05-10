@@ -13,7 +13,7 @@ class Proyecto extends Model
     protected $fillable=['name','description','date_create','date_update','date_finally'];
 
     public function user(){
-        return $this->belongsToMany('App\Models\User','user_project');
-            
+        return $this->belongsToMany('App\Models\User','user_project')
+            ->withPivot('id_user');
     }
 }
