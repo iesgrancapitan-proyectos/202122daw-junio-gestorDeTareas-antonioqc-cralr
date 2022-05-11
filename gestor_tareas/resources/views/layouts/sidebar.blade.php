@@ -10,7 +10,7 @@
                 <li class="active">
                     <a href="{{ route('home') }}" >Home</a>
                 </li>
-                <li>
+                <li id="today">
                     <a href="#tareasHoy" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hoy</a>
                     <ul class="collapse list-unstyled" id="tareasHoy">
                         @foreach($tareasHoy as $tarea)
@@ -23,7 +23,7 @@
                         @endforeach
                     </ul>
                 </li>
-                <li>
+                <li id="next">
                     <a href="#">Proximas</a>
                 </li>
                 <li>

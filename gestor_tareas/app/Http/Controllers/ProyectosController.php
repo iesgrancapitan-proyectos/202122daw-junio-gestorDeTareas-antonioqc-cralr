@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tarea;
 use App\Models\Proyecto;
+use App\Models\ProyectoUser;
 use Carbon\Carbon;
 
 class ProyectosController extends Controller
@@ -24,17 +25,22 @@ class ProyectosController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {   
         $tareas = Tarea::get();
         $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
-    
-        return view('proyectos')->with(compact('tareas','tareasHoy'));
+
+
+        $proyectos = Proyecto::get();
+        $proyectosuser = ProyectoUser::get();
+        
+        return view('proyectos')->with(compact('tareas','tareasHoy','proyectos','proyectosuser'));
     }
 
 
     public function crearProyecto(Request $request){
         $proyecto = new Proyecto;
+        
 
         $proyecto->name = $request->nombre;
         if($request->descripcion == ""){
@@ -46,9 +52,20 @@ class ProyectosController extends Controller
         $proyecto->date_create = Carbon::now();
 
         $proyecto->save();
-        $proyecto->user()->attach(5);
-        return redirect()->back();
+        $proyecto->user()->attach($request->id);
 
+        return redirect()->back();
+    }
+
+    public function eliminarProyecto($id)
+    {
+
+
+        $proyecto = proyecto::find($id);
+        $proyecto->delete();
+        
+
+        return redirect()->route('proyectos');
     }
 
 }

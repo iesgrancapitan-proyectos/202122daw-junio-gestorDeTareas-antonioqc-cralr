@@ -42,7 +42,7 @@ class TareasController extends Controller
         }else{
             $tarea->description = $request->descripcion;
         }
-        $tarea->date_finally = $request->finalizacion;
+        $tarea->date_finally = $request->finalizacion.' 23:59:59';
         $tarea->date_create = Carbon::now();
 
         $tarea->save();
