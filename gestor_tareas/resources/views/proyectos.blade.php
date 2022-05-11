@@ -10,6 +10,32 @@
     </div>
     <br>
 
+   
+    <div class="row">           
+        <div id="allTasks">
+            @foreach ($proyectos as $proyecto)
+                    <div class="proyecto mb-2 fs-4" id="proyecto-{{$proyecto->id}}" data-value="{{$proyecto->id}}" data-bs-toggle="collapse" href="#collapse-{{$proyecto->id}}" aria-expanded="false"  aria-controls="collapse-{{$proyecto->id}}">{{$proyecto->name}}</div>
+                    <div class="collapse" id="collapse-{{$proyecto->id}}">
+                        <div class="card card-body col-sm-6">
+                            Descripción: {{$proyecto->description}}<br>
+                            Fecha Finalización: {{\Carbon\Carbon::parse($proyecto->date_finally)->format('d/m/Y')}}
+
+                            <form action="{{ route('proyecto.destroy', $proyecto->id) }}" method ="POST" >
+                                @csrf
+                                {{ method_field('DELETE') }}
+                                <div>
+                                    <button class="btn" onclick="return confirm('¿Seguro que deseas eliminarlo?')"><img src="/assets/img/eliminar.svg"></button>
+                                    {{-- <a href="#"><img src="assets/img/lapiz.svg"></a> --}}
+                                    {{--< a href="#"><img src="assets/img/comentario.png"></a> --}}
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+            @endforeach
+        </div>
+    </div>
+
     <div class="row justify-content-center">
         <div class="text-center" id="formProject">
             <form method="post" action="{{route('crearProyecto')}}">
@@ -19,7 +45,6 @@
                     <span class="boton-cerrar"><input type="button" value="X"></span>
                 </div>
                 <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;">
-                
                 <div class="form-group row">
                     <label for="nombre" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-8 mb-2">
@@ -62,6 +87,12 @@
             $('.boton-cerrar').on('click',function() {
                 $('#formProject').css('display','none');
             });
+
+            $('.descripcion, .iconos').css('display','none');
+ 
+            $('#nombre, #descripcion, #finalizacion').val("");
+
+            $('#today, #next').css("display","none");
             
     });
 </script>
