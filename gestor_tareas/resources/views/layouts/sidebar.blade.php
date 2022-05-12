@@ -3,7 +3,7 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Gestor de Tareas</h3>
+                <a href="{{ route('home') }}" ><h3>Gestor de Tareas</h3></a>
             </div>
 
             <ul class="list-unstyled components">

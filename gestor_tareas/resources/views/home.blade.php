@@ -13,7 +13,7 @@
     <div class="row">           
         <div id="allTasks">
             @foreach ($tareas as $tarea)
-                @if( ($tarea->date_finally)->diffInMinutes(\Carbon\Carbon::now()->format('Y-m-d H:i:s')) )
+                @if( (\Carbon\Carbon::parse($tarea->date_finally))->gt(\Carbon\Carbon::now()))
                     <div class="tarea mb-2 fs-4" id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
                     <div class="collapse" id="collapse-{{$tarea->id}}">
                         <div class="card card-body col-sm-6">
