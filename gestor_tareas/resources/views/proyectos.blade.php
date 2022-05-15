@@ -12,8 +12,9 @@
 
    
     <div class="row">           
-        <div id="allTasks">
+        <div id="allProjects">
             @foreach ($proyectos as $proyecto)
+                <div class="proyectos">
                     <div class="proyecto mb-2 fs-4" id="proyecto-{{$proyecto->id}}" data-value="{{$proyecto->id}}" data-bs-toggle="collapse" href="#collapse-{{$proyecto->id}}" aria-expanded="false"  aria-controls="collapse-{{$proyecto->id}}">{{$proyecto->name}}</div>
                     <div class="collapse" id="collapse-{{$proyecto->id}}">
                         <div class="card card-body col-sm-6">
@@ -32,6 +33,7 @@
                             
                         </div>
                     </div>
+                </div>
             @endforeach
         </div>
     </div>

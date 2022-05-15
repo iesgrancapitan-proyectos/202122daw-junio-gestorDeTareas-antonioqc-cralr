@@ -59,7 +59,7 @@ main{
     text-align: center;
 }
 
-#allTasks{
+#allTasks, #allProjects{
     display: block;
     margin-top:35px !important;
 }
@@ -114,6 +114,11 @@ main{
         width:80%;  
     }
 
+    #allTasks, #allProjects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
 
@@ -128,4 +133,10 @@ main{
     #formTask{
         width:50%;  
     }
+
+    #allTasks, #allProjects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
 }
