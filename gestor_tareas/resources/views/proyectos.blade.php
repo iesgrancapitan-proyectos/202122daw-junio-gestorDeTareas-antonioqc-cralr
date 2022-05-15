@@ -84,10 +84,12 @@
 
           $('#buttonAddProyect').on('click', function () {
                 $('#formProject').css('display','block');
+                $('#allProjects').css('display','none');
             });
 
             $('.boton-cerrar').on('click',function() {
                 $('#formProject').css('display','none');
+                $('#allProjects').css('display','grid');
             });
 
             $('.descripcion, .iconos').css('display','none');

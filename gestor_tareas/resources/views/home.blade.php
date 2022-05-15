@@ -133,7 +133,7 @@
             $('.boton-cerrar').on('click',function() {
                 $('#formTask').css('display','none');
                 //$('#formProject').css('display','none');
-                $('#allTasks').css('display','block');
+                $('#allTasks').css('display','grid');
             });
             
             $('.descripcion, .iconos').css('display','none');
