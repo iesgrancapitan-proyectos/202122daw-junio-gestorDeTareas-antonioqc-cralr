@@ -7,6 +7,30 @@
 
 /*Tareas*/
 
+.navbar-toggler-icon{
+    display: none;
+}
+
+.navbar-toggler{
+    display: none;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"]{
+    background: none;
+}
+
+/*Content*/
+
+main{
+    height: 89%;
+}
+
+/*Tareas*/
+
+/* .tarea{
+    text-align: center;
+} */
+
 #buttonAddTask{
     /* margin-right: 30px; */
     float: right;
@@ -48,6 +72,10 @@
 
 /*Proyectos*/
 
+/* .proyecto{
+    text-align: center;
+} */
+
 #formProject{
     margin-top: 5rem !important;
     display: none;
@@ -74,7 +102,6 @@
 
 /*Tablet*/
 @media (min-width: 768px) and (max-width: 1023px) {
-
     /*Sidebar*/
     #sidebar{
         min-width: 250px !important;
@@ -84,14 +111,21 @@
     /*Tareas*/
 
     #formTask{
-        width: 50%;
+        width:80%;  
     }
 
 }
 
 
 @media (min-width: 1024px){
+    /*Sidebar*/
     #sidebar{
         min-width: 250px !important;
+    }
+
+    /*Tareas*/
+
+    #formTask{
+        width:50%;  
     }
 }
