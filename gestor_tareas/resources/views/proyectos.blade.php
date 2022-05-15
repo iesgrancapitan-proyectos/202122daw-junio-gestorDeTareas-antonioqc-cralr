@@ -17,7 +17,7 @@
                 <div class="proyectos">
                     <div class="proyecto mb-2 fs-4" id="proyecto-{{$proyecto->id}}" data-value="{{$proyecto->id}}" data-bs-toggle="collapse" href="#collapse-{{$proyecto->id}}" aria-expanded="false"  aria-controls="collapse-{{$proyecto->id}}">{{$proyecto->name}}</div>
                     <div class="collapse" id="collapse-{{$proyecto->id}}">
-                        <div class="card card-body col-sm-6">
+                        <div class="card card-body col-sm-6 card-w">
                             Descripción: {{$proyecto->description}}<br>
                             Fecha Finalización: {{\Carbon\Carbon::parse($proyecto->date_finally)->format('d/m/Y')}}
 
@@ -84,12 +84,12 @@
 
           $('#buttonAddProyect').on('click', function () {
                 $('#formProject').css('display','block');
-                $('#allProjects').css('display','none');
+                $('#allProjects').css('display',"none");
             });
 
             $('.boton-cerrar').on('click',function() {
                 $('#formProject').css('display','none');
-                $('#allProjects').css('display','grid');
+                $('#allProjects').css('display',"grid");
             });
 
             $('.descripcion, .iconos').css('display','none');
@@ -97,6 +97,12 @@
             $('#nombre, #descripcion, #finalizacion').val("");
 
             $('#today, #next').css("display","none");
+
+            if (matchMedia('(max-width: 767px)').matches) {
+                    $('.card').addClass("col-sm-12");
+                    $('.card').removeClass("col-sm-6");
+                    $('.proyecto').css("text-align","center");
+            }
             
     });
 </script>

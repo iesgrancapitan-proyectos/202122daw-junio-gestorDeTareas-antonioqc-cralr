@@ -139,6 +139,10 @@ main{
         width:80%;  
     }
 
+    .card-w{
+        width: 40%;
+    }
+
     #allTasks, #allProjects {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -157,6 +161,10 @@ main{
 
     #formTask{
         width:50%;  
+    }
+
+    .card-w{
+        width: 80%;
     }
 
     #allTasks, #allProjects {
