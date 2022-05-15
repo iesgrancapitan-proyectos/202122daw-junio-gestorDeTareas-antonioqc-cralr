@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Gestor de Tareas</title>
+        <title>WorkFine</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset ('css/styles.css')}}" rel="stylesheet" />
+        <link rel="stylesheet" href={{ asset('css/pages.css') }}>
     </head>
     <body>
         <!-- Navigation-->
@@ -21,7 +22,7 @@
             <div class="container">
                 <div>
                     <img src="assets/img/logo.png" alt="" srcset="">
-                    <a class="navbar-brand" href="#!">Gestor De Tareas</a>
+                    <a class="navbar-brand" href="#!">WorkFine</a>
                 </div>
                 @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -104,7 +105,7 @@
                                 <a href="#!"><i class="bi-telegram fs-3"></i></a>
                             </li>
                         </ul>
-                        <ul>Rafael Miguel Cruz Álvarez</ul>
+                        <ul class="no-padding">Rafael Miguel Cruz Álvarez</ul>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-3">

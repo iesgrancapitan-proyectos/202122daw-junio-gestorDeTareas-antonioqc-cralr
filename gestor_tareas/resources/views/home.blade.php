@@ -14,9 +14,9 @@
         <div id="allTasks">
             @foreach ($tareas as $tarea)
                 @if( (\Carbon\Carbon::parse($tarea->date_finally))->gt(\Carbon\Carbon::now()))
-                    <div class="tarea mb-2 fs-4" id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
+                    <div class="tarea mb-2 fs-4"  id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
                     <div class="collapse" id="collapse-{{$tarea->id}}">
-                        <div class="card card-body col-sm-6">
+                        <div class="card card-body" >
                             Descripción: {{$tarea->description}}<br>
                             Fecha Finalización: {{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}
 
@@ -127,11 +127,6 @@
                 $('#allTasks').css('display','none');
             });
 
-          /*   $('#buttonAddProyect').on('click', function () {
-                $('#formProject').css('display','block');
-                $('#formTask').css('display','none');
-                $('#allTasks').css('display','none');
-            }); */
 
             $('.boton-cerrar').on('click',function() {
                 $('#formTask').css('display','none');
@@ -159,7 +154,18 @@
                         $('#tarea-'+element.dataset.value).css("display","none");
                     }
                 }  
-            })
+            });
+
+            //Control de css segun versión 
+
+            if (matchMedia('(max-width: 767px)').matches) {
+                    $('.card').addClass("col-sm-12");
+                    $('.card').removeClass("col-sm-6");
+                    $('.tarea').css("text-align","center");
+            }else{
+                $('.card').removeClass("col-sm-12");
+                $('.card').addClass("col-sm-6");
+            }
             
     });
 </script>
