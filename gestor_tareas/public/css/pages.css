@@ -1,7 +1,17 @@
+/*Sidebar*/
+
+#sidebar{
+    min-width: 160px;
+}
+
+
+/*Tareas*/
+
 #buttonAddTask{
     /* margin-right: 30px; */
     float: right;
 }
+
 #buttonAddProyect{
     float: right;
     margin-right: 5px;
@@ -11,15 +21,6 @@
     margin-top: 5rem !important;
     display: none;
     border: 1px solid black;
-    width: 50%;
-    height: 100%;
-}
-
-#formProject{
-    margin-top: 5rem !important;
-    display: none;
-    border: 1px solid black;
-    width: 50%;
     height: 100%;
 }
 
@@ -31,13 +32,32 @@
 }
 
 .inputsTask::-webkit-input-placeholder {
-        text-align: center;
+    text-align: center;
 }
 
 #allTasks{
     display: block;
     margin-top:35px !important;
 }
+
+#contenedor-tareas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+/*Proyectos*/
+
+#formProject{
+    margin-top: 5rem !important;
+    display: none;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}
+
+
+/*General*/
 
 .boton-cerrar > input{
   float: right;
@@ -46,8 +66,32 @@
   border: 0;
 }
 
-#contenedor-tareas{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+
+.no-padding{
+    padding-left:0;
+}
+
+
+/*Tablet*/
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    /*Sidebar*/
+    #sidebar{
+        min-width: 250px !important;
+    }
+
+
+    /*Tareas*/
+
+    #formTask{
+        width: 50%;
+    }
+
+}
+
+
+@media (min-width: 1024px){
+    #sidebar{
+        min-width: 250px !important;
+    }
 }

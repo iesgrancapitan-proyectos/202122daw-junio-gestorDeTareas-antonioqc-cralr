@@ -89,6 +89,20 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+@media (max-width: 530px) {
+  #navegacion {
+    place-content: center;
+  }
+
+  #navegacion .btn {
+    font-size: 15px;
+  }
+
+  form .btn {
+    font-size: 15px;
+  }
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -649,6 +663,8 @@ progress {
   .container-md, .container-sm, .container {
     max-width: 720px;
   }
+
+
 }
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
