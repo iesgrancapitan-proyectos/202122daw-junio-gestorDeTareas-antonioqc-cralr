@@ -3,7 +3,7 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <a href="{{ route('home') }}" ><h3>Gestor de Tareas</h3></a>
+                <a href="{{ route('home') }}" ><h3>WorkFine</h3></a>
             </div>
 
             <ul class="list-unstyled components">
@@ -81,5 +81,11 @@
                     }
                 });
 
+                if (matchMedia('(max-width: 767px)').matches) {
+                    $('main').on("click",function(){
+                        $('#sidebar').removeClass("active");
+                        $('#sidebarCollapse').removeClass("active");
+                    });
+                }
         });
     </script>

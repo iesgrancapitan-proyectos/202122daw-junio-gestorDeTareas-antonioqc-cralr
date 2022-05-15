@@ -1,3 +1,34 @@
+/*Sidebar*/
+
+#sidebar{
+    min-width: 160px;
+    height: 100%;
+}
+
+.navbar-toggler-icon{
+    display: none;
+}
+
+.navbar-toggler{
+    display: none;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"]{
+    background: none;
+}
+
+/*Content*/
+
+main{
+    height: 89%;
+}
+
+/*Tareas*/
+
+/* .tarea{
+    text-align: center;
+} */
+
 #buttonAddTask{
     /* margin-right: 30px; */
     float: right;
@@ -11,15 +42,6 @@
     margin-top: 5rem !important;
     display: none;
     border: 1px solid black;
-    width: 50%;
-    height: 100%;
-}
-
-#formProject{
-    margin-top: 5rem !important;
-    display: none;
-    border: 1px solid black;
-    width: 50%;
     height: 100%;
 }
 
@@ -39,6 +61,29 @@
     margin-top:35px !important;
 }
 
+#contenedor-tareas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+/*Proyectos*/
+
+/* .proyecto{
+    text-align: center;
+} */
+
+#formProject{
+    margin-top: 5rem !important;
+    display: none;
+    border: 1px solid black;
+    width: 50%;
+    height: 100%;
+}
+
+
+/*General*/
+
 .boton-cerrar > input{
   float: right;
   padding: 2px 5px;
@@ -46,8 +91,39 @@
   border: 0;
 }
 
-#contenedor-tareas{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+
+.no-padding{
+    padding-left:0;
+}
+
+
+/*Tablet*/
+@media (min-width: 768px) and (max-width: 1023px) {
+    
+    /*Sidebar*/
+    #sidebar{
+        min-width: 250px !important;
+    }
+
+
+    /*Tareas*/
+
+    #formTask{
+        width:80%;  
+    }
+
+}
+
+
+@media (min-width: 1024px){
+    /*Sidebar*/
+    #sidebar{
+        min-width: 250px !important;
+    }
+
+    /*Tareas*/
+
+    #formTask{
+        width:50%;  
+    }
 }
