@@ -1,3 +1,14 @@
+/*Colores*/
+.dark-primary-color    { background: #303F9F; }
+.default-primary-color { background: #3F51B5; }
+.light-primary-color   { background: #C5CAE9; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #FFC107; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
+
+
 /*Sidebar*/
 
 #sidebar{
@@ -23,6 +34,20 @@
 
 main{
     height: 89%;
+}
+
+#content {
+    background: #f1f1f1;
+}
+
+.btn-primary {
+    background-color: #FFC107 !important;
+    border-color: #FFC107 !important;
+}
+
+.btn-primary:hover {
+    background-color: #FFC107 !important;
+    border-color: #FFC107 !important;
 }
 
 /*Tareas*/
