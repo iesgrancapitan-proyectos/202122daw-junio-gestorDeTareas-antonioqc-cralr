@@ -95,6 +95,10 @@ main{
     grid-gap: 10px;
 }
 
+.card-header{
+    background-color: #fff;
+}
+
 /*Proyectos*/
 
 /* .proyecto{
@@ -173,4 +177,5 @@ main{
         grid-gap: 10px;
     }
     
+
 }
