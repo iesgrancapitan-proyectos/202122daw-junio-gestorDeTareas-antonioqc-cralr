@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li id="next">
-                    <a href="#">Proximas</a>
+                    <a href="#">Próximas</a>
                 </li>
                 <li>
                     <a href="{{ route('proyectos') }}">Proyectos</a>
