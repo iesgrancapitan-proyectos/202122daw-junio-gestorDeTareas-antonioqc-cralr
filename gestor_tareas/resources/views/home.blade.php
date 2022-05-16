@@ -14,11 +14,15 @@
         <div id="allTasks">
             @foreach ($tareas as $tarea)
                 @if( (\Carbon\Carbon::parse($tarea->date_finally))->gt(\Carbon\Carbon::now()))
-                <div class="tareas card text-center">
-                    <div class="tarea fs-4 card-header"  id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
+                <div class="tareas color-card text-center">
+                    <div class="tarea fs-4  card card-header"  id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
                     <div class="collapse" id="collapse-{{$tarea->id}}">
                         <div class="card" >
-                            <div class="card-footer">{{$tarea->description}}</div>
+                            @if($tarea->description == "")
+                                <div class="card-footer">Sin Descripción</div>
+                            @else    
+                                <div class="card-footer">{{$tarea->description}}</div>
+                            @endif
                             <div class="card-text text-muted mt-2">{{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}</div>
 
                             <form action="{{ route('tarea.destroy', $tarea->id) }}" method ="POST" >
