@@ -146,7 +146,7 @@
 
             $('#tareaHoy-'+$('#hoy').val()).on("click",function(){
                 $hoy = parseInt($('#hoy').val());
-
+                console.log($hoy);
                 $tareas = document.getElementsByClassName("tarea");
                 $arrayOfElements = Array.from($tareas);
 

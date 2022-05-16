@@ -14,8 +14,8 @@
                     <a href="#tareasHoy" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hoy</a>
                     <ul class="collapse list-unstyled" id="tareasHoy">
                         @foreach($tareasHoy as $tarea)
-                        <li>
-                            <input type="hidden" name="tareaHoy" value="{{$tarea->id}}" id="hoy">
+                        <li class="li-n">
+                            <input type="hidden" name="tareaHoy" value="{{$tarea->id}}" class="hoy">
                             <a href="#" id="tareaHoy-{{$tarea->id}}">
                                     {{$tarea->name}}
                                 </a>
@@ -70,16 +70,12 @@
                 $(this).toggleClass('active');
             });
 
-            $('#todasTareas').on("click",function(){
-                console.log("hola");
-                $tareas = document.getElementsByClassName("tarea");
-                $arrayOfElements = Array.from($tareas);
-
-                for (let i = 0; i < $arrayOfElements.length; i++) {
-                    const element = $arrayOfElements[i];
-                        $('#tarea-'+element.dataset.value).css("display","block");
-                    }
-                });
+            let contador = 0;
+            for(i=0;i<$('.li-n').length;i++){
+                $('.hoy').attr('id',"hoy-"+(contador)); 
+            }
+            contador++;
+            
 
                 if (matchMedia('(max-width: 767px)').matches) {
                     $('main').on("click",function(){
