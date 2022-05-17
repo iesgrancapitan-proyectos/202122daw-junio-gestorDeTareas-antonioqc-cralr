@@ -13,9 +13,20 @@
                 <li id="today">
                     <a href="#tareasHoy" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hoy</a>
                     <ul class="collapse list-unstyled" id="tareasHoy">
+                        @php
+                            $total = $tareasHoy->count();
+                            echo '<input type="hidden" id="totalhidden" value='.$total.'>';
+                        @endphp
                         @foreach($tareasHoy as $tarea)
+                        
                         <li class="li-n">
-                            <input type="hidden" name="tareaHoy" value="{{$tarea->id}}" class="hoy">
+                            @php
+                                $value = $tarea->id;
+                                echo '<input type="hidden" id="tareahidden" value='.$value.'>';           
+                            @endphp
+                            <div id="inputhidden">
+
+                            </div>
                             <a href="#" id="tareaHoy-{{$tarea->id}}">
                                     {{$tarea->name}}
                                 </a>
@@ -70,11 +81,12 @@
                 $(this).toggleClass('active');
             });
 
+            let total = $('#totalhidden').val();
             let contador = 0;
-            for(i=0;i<$('.li-n').length;i++){
-                $('.hoy').attr('id',"hoy-"+(contador)); 
+            for(i=0;i<total;i++){
+                contador++;
+                $('<input type="hidden" name="tareaHoy>').appendTo('#inputhidden').attr('id','data-'+contador);
             }
-            contador++;
             
 
                 if (matchMedia('(max-width: 767px)').matches) {
