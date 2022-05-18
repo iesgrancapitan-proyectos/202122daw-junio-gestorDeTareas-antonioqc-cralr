@@ -67,6 +67,29 @@ class TareasController extends Controller
 
     }
 
+    public function verTarea($id)
+    {   
+        $tarea= Tarea::find($id);
+        $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
+        return view('verTarea', compact('tarea','tareasHoy'));
+    }
+
+    public function editarTarea(Request $request,$id)
+    {   
+        $tarea = Tarea::find($id);
+        $tarea->id_user = $request->id;
+        $tarea->name = $request->nombre;
+        if($request->descripcion == ""){
+            $tarea->description = "";
+        }else{
+            $tarea->description = $request->descripcion;
+        }
+        $tarea->date_update = Carbon::now();
+        $tarea->save();
+
+        return redirect()->back();
+        
+    }
 
 
 }
