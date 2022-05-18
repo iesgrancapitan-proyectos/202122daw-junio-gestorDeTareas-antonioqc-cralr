@@ -4,11 +4,9 @@
 <div class="container">
     <a href="{{ url()->previous() }}" class="btn btn-primary"><img src="/assets/img/flecha-atras.svg" ></a>
     <div class="row" id="datos">
-        {{$tarea->name}}
-        {{$tarea->id}}
-
-        
-    
+        {{$tarea->name}}<br>
+        {{$tarea->description}}<br>
+        {{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}
     </div>
     <div id="editar" style="display: none">
         <form method="post" action="{{route('editarTarea',$tarea->id)}}">
@@ -17,13 +15,19 @@
                 <div class="form-group row">
                     <label for="nombre" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-8 mb-2">
-                        <input type="text" class="form-control" name="nombre" id="nombre" value="{{$tarea->name}}">
+                        Nombre: <input type="text" class="form-control" name="nombre" id="nombre" value="{{$tarea->name}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="descripcion" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-8 mb-2">
-                        <textarea class="form-control" name="descripcion" id="descripcion"  value="{{$tarea->description}}"></textarea>
+                        Descripción: <textarea class="form-control" name="descripcion" id="descripcion"  >{{$tarea->description}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="finalizacion" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-8 mb-2">
+                        <input type="date" class="form-control" name="finalizacion" id="finalizacion">
                     </div>
                 </div>
             <button type="submit" class="btn btn-primary mb-4 mt-3" >Editar</button>
