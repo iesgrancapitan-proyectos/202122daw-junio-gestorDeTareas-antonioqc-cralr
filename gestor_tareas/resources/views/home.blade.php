@@ -26,7 +26,7 @@
                                 {{ method_field('DELETE') }}
                                 <div>
                                     <button class="btn" onclick="return confirm('¿Seguro que deseas eliminarlo?')"><img src="assets/img/eliminar.svg"></button>
-                                    {{-- <a href="#"><img src="assets/img/lapiz.svg"></a> --}}
+                                    <a href="{{ route('verTarea',$tarea->id) }}"><img src="assets/img/view.svg"></a>
                                     {{--< a href="#"><img src="assets/img/comentario.png"></a> --}}
                                 </div>
                             </form>
