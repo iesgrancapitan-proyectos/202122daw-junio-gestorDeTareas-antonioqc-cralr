@@ -170,7 +170,12 @@ main{
     #allTasks, #allProjects {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px;
+        grid-gap: 15px;
+    }
+
+    .tarea:hover {
+        box-shadow: 2px 2px 5px #999;
+        transition: box-shadow 0.40s linear;
     }
     
 }
