@@ -51,6 +51,8 @@
             $('#editar').css("display","block");
             $('#ocultar').css("display","none");
         });
+
+        if(location.href = "";)
             
     });
 </script>
