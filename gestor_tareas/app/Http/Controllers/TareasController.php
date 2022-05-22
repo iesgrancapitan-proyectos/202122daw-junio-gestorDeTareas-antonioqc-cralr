@@ -72,8 +72,9 @@ class TareasController extends Controller
     public function verTarea($id)
     {   
         $tarea= Tarea::find($id);
+        $comentarios = Comments_task::all();
         $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
-        return view('verTarea', compact('tarea','tareasHoy'));
+        return view('verTarea', compact('tarea','tareasHoy','comentarios'));
     }
 
     public function editarTarea(Request $request,$id)

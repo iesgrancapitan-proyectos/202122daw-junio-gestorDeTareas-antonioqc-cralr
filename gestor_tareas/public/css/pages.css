@@ -138,6 +138,13 @@ main{
   border: 0;
 }
 
+.boton-cerrar-edit > input{
+    float: right;
+    padding: 2px 5px;
+    background-color: #fafafa;
+    border: 0;
+  }
+
 
 .no-padding{
     padding-left:0;
