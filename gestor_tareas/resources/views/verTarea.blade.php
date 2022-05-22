@@ -9,10 +9,12 @@
         {{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}
         </div>
         <div class="card-body">
-            <h5 class="card-title text-center">{{$tarea->name}}</h5>
+            <h5 class="card-title text-center">{{$tarea->name}} 
+            </h5>
             <p class="card-text"> {{$tarea->description}}</p>
-            <button class="btn btn-primary" id="ocultar"><img src="/assets/img/lapiz.svg"></button>
-            <button class="btn btn-primary" style="float:right;" type="button" id="addComent">Añadir Comentario</button>
+            <button class="btn btn-primary" style="float:right;" type="button" id="addComent"><img src="/assets/img/comentario.svg"></button>
+            <button class="btn btn-primary" style="float:right; margin-right: 5px;" id="ocultar"><img src="/assets/img/lapiz.svg"></button>
+            
             <div class="row">
                 <div class="d-grid d-md-block ">
                         
