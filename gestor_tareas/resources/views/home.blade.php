@@ -18,8 +18,8 @@
                     <div class="tarea fs-4 card-header"  id="tarea-{{$tarea->id}}" data-value="{{$tarea->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea->id}}">{{$tarea->name}}</div>
                     <div class="collapse" id="collapse-{{$tarea->id}}">
                         <div class="card" >
-                            <div class="card-footer">{{$tarea->description}}</div>
-                            <div class="card-text text-muted mt-2">{{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}</div>
+                            <div class="card-footer text-muted">{{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}</div>
+                            <div class="card-text mt-4 mb-4 me-4 ms-4">{{$tarea->description}}</div>
 
                             <form action="{{ route('tarea.destroy', $tarea->id) }}" method ="POST" >
                                 @csrf
