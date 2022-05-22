@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Tarea;
 use App\Models\Comments_task;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class TareasController extends Controller
 {
@@ -85,7 +86,12 @@ class TareasController extends Controller
         }else{
             $tarea->description = $request->descripcion;
         }
-        $tarea->date_finally = $request->finalizacion;
+        if($request->finalizacion == ""){
+            $fecha = DB::table('tasks')->select('date_finally')->first();
+            $tarea->date_finally = $fecha->date_finally;
+        }else{
+            $tarea->date_finally = $request->finalizacion.' 23:59:59';
+        }
         $tarea->date_update = Carbon::now();
         $tarea->save();
 
