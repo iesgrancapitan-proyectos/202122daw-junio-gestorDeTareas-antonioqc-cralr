@@ -104,6 +104,16 @@ main{
     grid-gap: 10px;
 }
 
+/*Comentario Tareas*/
+.input-form-comments{
+    display: flex; 
+    justify-content: center;
+}
+
+.input-comments{
+    width: 60%;
+}
+
 /*Proyectos*/
 
 /* .proyecto{
@@ -161,6 +171,10 @@ main{
         width: 2.5rem;
     }
 
+    /*Comentarios Tareas*/
+    .input-comments{
+        width: 50%;
+    }
 }
 
 
@@ -193,6 +207,11 @@ main{
 
     #iconocalendario {
         width: 2.5rem;
+    }
+
+    /*Comentarios Tareas*/
+    .input-comments{
+        width: 50%;
     }
     
 }

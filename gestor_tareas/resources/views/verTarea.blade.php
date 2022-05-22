@@ -27,21 +27,19 @@
                     @csrf
                     <div class="form-group row mt-3">
                         <h2>Comentario</h2>
-                        <span class="boton-cerrar"><input type="button" value="X"></span>
+                        <span class="boton-cerrar"><input type="button" value="X" style="margin-right: 30px;"></span>
                     </div>
                     {{-- <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;"> --}}
                     <input type="hidden" name="id_tarea" value="{{$tarea->id}}" style="display: none;">
                     
-                    <div class="form-group row">
-                        <label for="nombre_comentario" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-8 mb-2">
+                    <div class="form-group row input-form-comments">
+                        <div class="col-sm-8 mb-2 input-comments" style="width: 50%;">
                             <input type="text" class="form-control" name="nombre_comentario" id="nombre_comentario" placeholder="Nombre" required>
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="desc_comentario" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-8 mb-2">
+                    <div class="form-group row input-form-comments">
+                        <div class="col-sm-8 mb-2 input-comments" style="width: 50%;">
                             <textarea class="form-control" name="desc_comentario" id="desc_comentario" placeholder="Comentario" ></textarea>
                         </div>
                     </div>                
