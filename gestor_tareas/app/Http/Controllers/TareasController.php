@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
+use App\Models\Comments_task;
 use Carbon\Carbon;
 
 class TareasController extends Controller
@@ -90,6 +91,19 @@ class TareasController extends Controller
 
         return redirect()->back();
         
+    }
+
+    public function addComment(Request $request){
+        $comentario = new Comments_task;
+
+        $comentario->id_task = $request->id_tarea;
+        $comentario->name = $request->nombre_comentario;
+        $comentario->description = $request->desc_comentario;
+        $comentario->date_create = $request->date_create = Carbon::now();
+
+        $comentario->save();
+        return redirect()->route('verTarea', ['id' => $request->id_tarea]); 
+
     }
 
 
