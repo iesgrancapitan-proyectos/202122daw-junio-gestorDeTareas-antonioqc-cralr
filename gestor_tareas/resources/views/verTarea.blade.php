@@ -12,9 +12,10 @@
             <h5 class="card-title text-center">{{$tarea->name}}</h5>
             <p class="card-text"> {{$tarea->description}}</p>
             <button class="btn btn-primary" id="ocultar"><img src="/assets/img/lapiz.svg"></button>
+            <button class="btn btn-primary" style="float:right;" type="button" id="addComent">Añadir Comentario</button>
             <div class="row">
                 <div class="d-grid d-md-block ">
-                        <button class="btn btn-primary" type="button" id="addComent">Añadir Comentario</button>
+                        
                         {{-- <button class="btn btn-primary" type="button" id="buttonAddProyect">Añadir Proyecto</button> --}}
                 </div>
             </div>                 
@@ -103,11 +104,13 @@
 
         $('#addComent').on('click', function () {
                 $('#formComment').css('display','block');
+                $('#addComent').css('display','none')
             });
 
             $('.boton-cerrar').on('click',function() {
                 $('#formComment').css('display','none');
                 $('#datos').css('display', 'block');
+                $('#addComent').css('display','block')
             });
     });
 </script>

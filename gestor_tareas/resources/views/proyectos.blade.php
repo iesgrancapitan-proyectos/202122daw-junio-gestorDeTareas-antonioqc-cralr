@@ -14,6 +14,7 @@
     <div class="row">           
         <div id="allProjects">
             @foreach ($proyectos as $proyecto)
+                @if( (\Carbon\Carbon::parse($proyecto->date_finally))->gt(\Carbon\Carbon::now()))
                 <div class="proyectos">
                     <div class="proyecto mb-2 fs-4" id="proyecto-{{$proyecto->id}}" data-value="{{$proyecto->id}}" data-bs-toggle="collapse" href="#collapse-{{$proyecto->id}}" aria-expanded="false"  aria-controls="collapse-{{$proyecto->id}}">{{$proyecto->name}}</div>
                     <div class="collapse" id="collapse-{{$proyecto->id}}">
@@ -34,6 +35,8 @@
                         </div>
                     </div>
                 </div>
+                @else
+                @endif
             @endforeach
         </div>
     </div>
