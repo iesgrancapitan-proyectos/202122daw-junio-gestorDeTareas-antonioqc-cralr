@@ -47,42 +47,37 @@
                     </div>
                 </form>
             </div>
-         </div>
+        </div>
+
+        <div class="card" id="editar" style="display: none">
+            <div class="card-header text-center">Editar Tarea</div>
+            <form method="post" action="{{route('editarTarea',$tarea->id)}}">
+                @csrf
+                    <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;">
+                    <div class="form-group row">
+                        <label for="nombre" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-8 mb-2">
+                            Nombre: <input type="text" class="form-control" name="nombre" id="nombre" value="{{$tarea->name}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="descripcion" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-8 mb-2">
+                            Descripción: <textarea class="form-control" name="descripcion" id="descripcion"  >{{$tarea->description}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="finalizacion" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-8 mb-2">
+                            <input type="date" class="form-control" name="finalizacion" id="finalizacion">
+                        </div>
+                    </div>
+                <button type="submit" class="btn btn-primary mb-4 mt-3" >Editar</button>
+                </div>
+            </form>
+        </div>
     </div>
     
-
-    
-    <div id="editar" style="display: none">
-        <form method="post" action="{{route('editarTarea',$tarea->id)}}">
-            @csrf
-                <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;">
-                <div class="form-group row">
-                    <label for="nombre" class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-8 mb-2">
-                        Nombre: <input type="text" class="form-control" name="nombre" id="nombre" value="{{$tarea->name}}">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="descripcion" class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-8 mb-2">
-                        Descripción: <textarea class="form-control" name="descripcion" id="descripcion"  >{{$tarea->description}}</textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="finalizacion" class="col-sm-2 col-form-label"></label>
-                    <div class="col-sm-8 mb-2">
-                        <input type="date" class="form-control" name="finalizacion" id="finalizacion">
-                    </div>
-                </div>
-            <button type="submit" class="btn btn-primary mb-4 mt-3" >Editar</button>
-            </div>
-        </form>
-
-    </div>
-    
-    
-
-
 </div>
 @endsection
 
@@ -94,15 +89,15 @@
         $('#formComment').css('display','none');
 
         $('#ocultar').on("click",function(){
-            $('#datos').css("display","none");
             $('#editar').css("display","block");
             $('#ocultar').css("display","none");
+            $('#addComent').css("display","none");
         });
 
 
         $('#addComent').on('click', function () {
                 $('#formComment').css('display','block');
-                $('#addComent').css('display','none')
+                $('#addComent').css('display','none');
             });
 
             $('.boton-cerrar').on('click',function() {
