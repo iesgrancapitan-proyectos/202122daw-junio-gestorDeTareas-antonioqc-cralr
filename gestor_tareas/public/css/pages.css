@@ -73,6 +73,13 @@ main{
     height: 100%;
 }
 
+#formComment{
+    margin-top: 5rem !important;
+    display: none;
+    border: 1px solid black;
+    height: 100%;
+}
+
 .inputsTask{
     background-color: #fafafa;
     border: 0;
@@ -139,6 +146,10 @@ main{
         width:80%;  
     }
 
+    #formComment{
+        width:80%;  
+    }
+
     .card-w{
         width: 40%;
     }
@@ -160,6 +171,11 @@ main{
     /*Tareas*/
 
     #formTask{
+        width:50%;  
+    }
+
+
+    #formComment{
         width:50%;  
     }
 
