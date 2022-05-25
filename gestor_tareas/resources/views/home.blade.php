@@ -37,6 +37,9 @@
                 @else
                 @endif
             @endforeach
+            {{-- @if(isset($tarea))
+                {{$tarea}}
+            @endif --}}
         </div>
     </div>
 

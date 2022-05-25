@@ -28,10 +28,29 @@
         {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> --}}
             
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
+         {{--    <ul class="navbar-nav me-auto">
 
-            </ul>
-            
+            </ul> --}}
+            @guest
+            @else
+                @if (Route::is('home'))
+                    <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home')}}">
+                        @csrf
+                        <div class="row" id="buscador">
+                            <input class="form-control mr-sm-2 col-8" type="search" placeholder="Buscar tareas" aria-label="Search" name="buscar_tarea">
+                            <button class="btn btn-outline-success my-2 my-sm-0 col-4" type="submit" id="buscar" name="buscar">Buscar</button>
+                        </div>
+                      </form>
+                
+                @elseif (Route::is('proyectos'))
+                    <form action="" method="get" >
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="" id="" placeholder="Proyectos">
+                        </div>
+                    </form>
+                @endif
+            @endguest
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
@@ -49,6 +68,7 @@
                     @endif
                 @else
                 {{-- <button class="btn btn-primary" type="button" id="buttonAddTask">+</button> --}}
+                
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             

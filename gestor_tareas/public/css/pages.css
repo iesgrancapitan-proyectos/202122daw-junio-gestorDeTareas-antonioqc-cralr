@@ -220,5 +220,20 @@ main{
     .input-comments{
         width: 50%;
     }
+
+    /*Buscador*/
+    #buscador{
+        flex-wrap: nowrap !important;
+    }
+
+    .btn-outline-success{
+        color: #FFC107 !important;
+        border-color: #FFC107 !important;
+        margin-left: 3px !important;
+    }
+
+    #sidebarCollapse{
+        margin-right: 30% !important;
+    }
     
 }
