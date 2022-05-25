@@ -27,6 +27,7 @@ Route::get('/home/ver/{id}', [App\Http\Controllers\TareasController::class, 'ver
 Route::post('/home/editar/{id}', [App\Http\Controllers\TareasController::class, 'editarTarea'])->name('editarTarea');
 Route::post('/home/addComment', [App\Http\Controllers\TareasController::class, 'addComment'])->name('addComment');
 
+
 Route::get('/home/proyectos', [App\Http\Controllers\ProyectosController::class, 'index'])->name('proyectos');
 Route::post('/home/crearProyecto', [App\Http\Controllers\ProyectosController::class, 'crearProyecto'])->name('crearProyecto');
 Route::delete('/home/proyectos/{id}', [App\Http\Controllers\ProyectosController::class, 'eliminarProyecto'])->name('proyecto.destroy');

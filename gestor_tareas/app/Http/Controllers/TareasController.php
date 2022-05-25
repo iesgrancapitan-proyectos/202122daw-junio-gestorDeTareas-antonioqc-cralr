@@ -25,10 +25,15 @@ class TareasController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {   
         $tareas = Tarea::get();
         $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
+
+        if($request->buscar_tarea){  
+            $tarea = Tarea::where("name", "LIKE", "%{$request->buscar_tarea}%");
+            return redirect()->route('home', ['tarea']);       
+        }
     
         return view('home')->with(compact('tareas','tareasHoy'));
     }
