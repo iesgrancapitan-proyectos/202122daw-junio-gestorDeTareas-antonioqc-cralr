@@ -38,7 +38,9 @@
                 @endif
             @endforeach
             {{-- @if(isset($tarea))
-                {{$tarea}}
+            @foreach($tarea as $tarea1)
+                {{$tarea1->id}}
+                @endforeach
             @endif --}}
         </div>
     </div>
