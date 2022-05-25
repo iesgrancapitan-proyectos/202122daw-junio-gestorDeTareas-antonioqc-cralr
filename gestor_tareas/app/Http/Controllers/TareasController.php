@@ -31,7 +31,8 @@ class TareasController extends Controller
         $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
 
         if($request->buscar_tarea){  
-            $tarea = Tarea::where("name", "LIKE", "%{$request->buscar_tarea}%");
+            $tarea = Tarea::where("name", "LIKE", "%{$request->buscar_tarea}%")->get();
+            
             return redirect()->route('home', ['tarea']);       
         }
     
