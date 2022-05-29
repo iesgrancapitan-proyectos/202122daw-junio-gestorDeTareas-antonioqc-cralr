@@ -15,6 +15,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset ('css/styles.css')}}" rel="stylesheet" />
         <link rel="stylesheet" href={{ asset('css/pages.css') }}>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     </head>
     <body>
         <!-- Navigation-->
