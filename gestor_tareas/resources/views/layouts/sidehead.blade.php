@@ -37,7 +37,7 @@
                     <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home')}}">
                         @csrf
                         <div class="row" id="buscador">
-                            <input class="form-control mr-sm-2 col-8" type="search" placeholder="Buscar tareas" aria-label="Search" name="buscar_tarea">
+                            <input class="form-control mr-sm-2 col-8" type="search" placeholder="Buscar tareas" aria-label="Search" name="buscar_tarea" id="buscadorInput">
                             <button class="btn btn-outline-success my-2 my-sm-0 col-4" type="submit" id="buscar" name="buscar">Buscar</button>
                         </div>
                       </form>
