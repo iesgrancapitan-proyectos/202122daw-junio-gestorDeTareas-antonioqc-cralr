@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{ url()->previous() }}" class="btn btn-primary"><img src="/assets/img/flecha-atras.svg" ></a>
+    <a href="{{ url("/home") }}" class="btn btn-primary"><img src="/assets/img/flecha-atras.svg" ></a>
     <div class="card mb-3 mt-3 " id="datos">
         <div class="card-header text-center">
         <img class="me-1" id="iconocalendario" src="/assets/img/calendario.png">
