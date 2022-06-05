@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tarea;
+use App\Models\User;
 use App\Models\Comments_task;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+
 
 class TareasController extends Controller
 {
@@ -33,7 +35,7 @@ class TareasController extends Controller
         if($request->buscar_tarea){  
             $busquedas = Tarea::where("name", "LIKE", "%{$request->buscar_tarea}%")->get();
             
-            return view('home')->with(compact("busquedas",'tareasHoy'));       
+            return view('home')->with(compact("busquedas",'tareasHoy','tareas'));       
         }
     
         return view('home')->with(compact('tareas','tareasHoy'));
@@ -118,6 +120,28 @@ class TareasController extends Controller
         return redirect()->route('verTarea', ['id' => $request->id_tarea]); 
 
     }
+
+       
+    // public function send(Request $request)
+    // {
+    //     $user = User::first();
+  
+    //     $tareas = [
+    //         'greeting' => 'Hi Artisan',
+    //         'body' => 'This is my first notification from HackTheStuff',
+    //         'thanks' => 'Thank you for using HackTheStuff article!',
+    //         'actionText' => 'View My Site',
+    //         'order_id' => 'Order-20190000151'
+    //     ];
+  
+
+    //     // $date = now()->addDays(2);
+    //     // $users = User::all();
+    //     // Tarea::where('date_finally', '<', $date)->get()->each(function($tareas) use ($users) {
+    //         Notification::send('antonioquesada00@gmail.com', new MailParametrizado($tareas));
+    //     // });
+
+    // } 
 
 
 }
