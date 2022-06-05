@@ -32,4 +32,4 @@ Route::post('/home/addComment', [App\Http\Controllers\TareasController::class, '
 Route::get('/home/proyectos', [App\Http\Controllers\ProyectosController::class, 'index'])->name('proyectos');
 Route::post('/home/crearProyecto', [App\Http\Controllers\ProyectosController::class, 'crearProyecto'])->name('crearProyecto');
 Route::delete('/home/proyectos/{id}', [App\Http\Controllers\ProyectosController::class, 'eliminarProyecto'])->name('proyecto.destroy');
-Route::get('send', 'MailParametrizado@send');
+Route::get('send', 'App\Http\Controllers\MailParametrizado@send');

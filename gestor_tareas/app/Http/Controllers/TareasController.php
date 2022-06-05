@@ -35,7 +35,7 @@ class TareasController extends Controller
         if($request->buscar_tarea){  
             $busquedas = Tarea::where("name", "LIKE", "%{$request->buscar_tarea}%")->get();
             
-            return view('home')->with(compact("busquedas",'tareasHoy'));       
+            return view('home')->with(compact("busquedas",'tareasHoy','tareas'));       
         }
     
         return view('home')->with(compact('tareas','tareasHoy'));
