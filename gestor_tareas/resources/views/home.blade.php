@@ -35,6 +35,7 @@
         <div id="allTasks">
             @if(isset($busquedas))
                 @foreach($busquedas as $tarea1)
+                    @if( (\Carbon\Carbon::parse($tarea1->date_finally))->gt(\Carbon\Carbon::now()))
                     <div class="tareas color-card text-center">
                         <div class="tarea fs-4 card-header"  id="tarea-{{$tarea1->id}}" data-value="{{$tarea1->id}}" data-bs-toggle="collapse" href="#collapse-{{$tarea1->id}}" aria-expanded="false"  aria-controls="collapse-{{$tarea1->id}}">{{$tarea1->name}}</div>
                         <div class="collapse" id="collapse-{{$tarea1->id}}">
@@ -54,6 +55,8 @@
                             </div>
                         </div>
                     </div>
+                    @else
+                    @endif
                 @endforeach
             @else
                 @foreach ($tareas as $tarea)

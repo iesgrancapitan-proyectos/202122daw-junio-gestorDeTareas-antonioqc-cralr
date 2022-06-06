@@ -26,6 +26,13 @@
     width: 1.5rem;
 }
 
+.btn-outline-success:hover{
+    background-color: #FFFFFF;
+}
+
+.btn-outline-success:focus{
+    box-shadow: none !important;
+}
 
 /*Sidebar*/
 

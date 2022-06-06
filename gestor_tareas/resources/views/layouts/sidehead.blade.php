@@ -43,12 +43,13 @@
                       </form>
                 
                 @elseif (Route::is('proyectos'))
-                    <form action="" method="get" >
-                        @csrf
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="" id="" placeholder="Proyectos">
-                        </div>
-                    </form>
+                <form class="form-inline my-2 my-lg-0" method="get" action="{{route('proyectos')}}">
+                    @csrf
+                    <div class="row" id="buscador">
+                        <input class="form-control mr-sm-2 col-8" type="search" placeholder="Buscar proyectos" aria-label="Search" name="buscar_proyecto" id="buscadorInputProeyctos">
+                        <button class="btn btn-outline-success my-2 my-sm-0 col-4" type="submit" id="buscarProyecto" name="buscar">Buscar</button>
+                    </div>
+                  </form>
                 @endif
             @endguest
             <!-- Right Side Of Navbar -->
