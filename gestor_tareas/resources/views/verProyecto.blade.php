@@ -17,7 +17,8 @@
             @endforeach
 
             <button class="btn btn-primary" style="float:right;" type="button" id="addComent"><img src="/assets/img/comentario.svg"></button>
-            <button class="btn btn-primary" style="float:right; margin-right: 5px;" id="ocultar"><img src="/assets/img/lapiz.svg"></button>              
+            <button class="btn btn-primary" style="float:right; margin-right: 5px;" id="editarBoton"><img src="/assets/img/lapiz.svg"></button> 
+            <button type="button" class="btn btn-primary" style="float:right; margin-right: 5px;" id="chatBoton" data-toggle="modal" data-target="#modal-chat"><img src="/assets/img/chat.svg"></button>              
         </div>    
     </div>
 
@@ -71,12 +72,33 @@
                 </div>
         </form>
     </div>
-
-
 </div>
-    
 
 @endsection
+
+<!-- Modal -->
+<div class="modal fade" id="modal-chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Chat</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <div id="chatbox"></div>
+                <input type="text" class="form-control" name="chat_input" id="chat_input">
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Enviar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
@@ -85,23 +107,27 @@
 
         $('#formComment').css('display','none');
 
-        $('#ocultar').on("click",function(){
+        $('#editarBoton').on("click",function(){
             $('#editar').css("display","block");
-            $('#ocultar').css("display","none");
+            $('#editarBoton').css("display","none");
+            $('#chat').css("display","none");
             $('#addComent').css("display","none");
+            $('#chatBoton').css("display","none");
         });
 
 
         $('#addComent').on('click', function () {
             $('#formComment').css("display","block");
-            $('#ocultar').css("display","none");
+            $('#editarBoton').css("display","none");
             $('#addComent').css("display","none");
+            $('#chatBoton').css("display","none");
         });
 
         $('.boton-cerrar').on('click',function() {
             $('#formComment').css('display','none');
             $('#addComent').css('display','block');
-            $('#ocultar').css("display","block");
+            $('#editarBoton').css("display","block");
+            $('#chatBoton').css("display","block");
         });
 
         $('#today, #next').css("display","none");
@@ -109,7 +135,8 @@
         $('.boton-cerrar-edit').on('click',function() {
             $('#editar').css('display','none');
             $('#addComent').css('display','block');
-            $('#ocultar').css("display","block");
+            $('#editarBoton').css("display","block");
+            $('#chatBoton').css("display","block");
         });
     });
 </script>
