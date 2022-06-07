@@ -9,7 +9,19 @@
 .divider-color         { border-color: #BDBDBD; }
 
 
+
 #prueba_paginate,#prueba_info,#prueba_filter{display: none;}
+
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
 
 .dt-button{
     background-color: #FFC107 !important;
