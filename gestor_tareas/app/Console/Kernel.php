@@ -31,9 +31,9 @@ class Kernel extends ConsoleKernel
                 $hoy = Carbon::now()->addDays(1);
                 if($hoy->isSameDay($fechaTarea)) { 
                     $details = [
-                        'greeting' => 'Hi Artisan',
-                        'body' => $tarea->name,
-                        'thanks' => 'Thank you for using HackTheStuff article!',
+                        'greeting' => 'Hola ' . $user[0]->name,
+                        'body' => 'Le recordamos que la tarea con título ' . $tarea->name . ' va a finalizar en el plazo de un día.',
+                        'thanks' => '¡Finalice la tarea cuanto antes!',
                         'actionText' => 'View My Site',
                         'actionURL' => url('https://hackthestuff.com'),
                         'order_id' => 'Order-20190000151'
@@ -43,7 +43,7 @@ class Kernel extends ConsoleKernel
                 }
             }
 
-        })->everyTwoMinutes();	
+        })->everyMinute();	
 
         // $schedule->command('inspire')->hourly();
     }

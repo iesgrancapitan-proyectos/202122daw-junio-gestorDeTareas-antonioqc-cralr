@@ -42,13 +42,13 @@
                                 <div class="card-footer text-muted"><img class="me-1" id="iconocalendario" src="/assets/img/calendario.png">{{\Carbon\Carbon::parse($proyecto1->date_finally)->format('d/m/Y')}}</div>
                                 <div class="card-text mt-4 mb-4 me-4 ms-4">{{$proyecto1->description}}</div>
 
-                                <form action="{{ route('proyecto.destroy', $proyecto1->id) }}" method ="POST" >
+                                <form action="{{ route('proyecto.destroy', $proyecto1->id) }}" method ="POST">
                                     @csrf
                                     {{ method_field('DELETE') }}
                                     <div>
                                         <button class="btn" onclick="return confirm('¿Seguro que deseas eliminarlo?')"><img src="/assets/img/eliminar.svg"></button>
                                         <a href="{{ route('verProyecto',$proyecto1->id) }}"><img src="/assets/img/view.svg"></a>
-                                        {{--< a href="#"><img src="assets/img/comentario.png"></a> --}}
+                                        <button class="btn"><img src="/assets/img/account-plus-outline.png"></button>
                                     </div>
                                 </form>
                             </div>
