@@ -9,6 +9,8 @@ use App\Models\Proyecto;
 use App\Models\ProyectoUser;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ProyectosController extends Controller
 {
@@ -29,18 +31,19 @@ class ProyectosController extends Controller
      */
     public function index(Request $request)
     {   
-        $tareas = Tarea::get();
-        $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
-        $proyectos = Proyecto::get();
-        $proyectosuser = ProyectoUser::get();
-
-        if($request->buscar_proyecto){  
-            $busquedas = Proyecto::where("name", "LIKE", "%{$request->buscar_proyecto}%")->get();
-            
-            return view('proyectos')->with(compact("busquedas",'tareasHoy','tareas','proyectos','proyectosuser'));       
-        }
-    
+        $id=Auth::id();
+        $tareas = Tarea::where('id_user',$id)->get();
+        $tareasHoy=Tarea::where('id_user',$id)->whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
+        $proyectos = User::find($id)->project;
+        $proyectosuser = ProyectoUser::where('id_user',$id)->get();
         
+        if($request->buscar_proyecto){
+            foreach($proyectos as $proyecto){
+                $busquedas = Proyecto::where("name", "LIKE", "%{$request->buscar_proyecto}%")->get();
+                return view('proyectos')->with(compact("busquedas",'tareasHoy','tareas','proyectos','proyectosuser'));
+            }    
+        }
+     
         return view('proyectos')->with(compact('tareas','tareasHoy','proyectos','proyectosuser'));
     }
 

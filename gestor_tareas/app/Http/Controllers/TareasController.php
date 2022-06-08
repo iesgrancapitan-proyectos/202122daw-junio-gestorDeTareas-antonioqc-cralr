@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Comments_task;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class TareasController extends Controller
@@ -29,11 +30,12 @@ class TareasController extends Controller
      */
     public function index(Request $request)
     {   
-        $tareas = Tarea::get();
-        $tareasHoy=Tarea::whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
+        $id=Auth::id();
+        $tareas = Tarea::where('id_user',$id)->get();
+        $tareasHoy=Tarea::where('id_user',$id)->whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
 
         if($request->buscar_tarea){  
-            $busquedas = Tarea::where("name", "LIKE", "%{$request->buscar_tarea}%")->get();
+            $busquedas = Tarea::where('id_user',$id)->where("name", "LIKE", "%{$request->buscar_tarea}%")->get();
             
             return view('home')->with(compact("busquedas",'tareasHoy','tareas'));       
         }

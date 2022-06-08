@@ -23,6 +23,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\TareasController::class, 'index'])->name('home');
+
 Route::post('/home/crearTarea', [App\Http\Controllers\TareasController::class, 'crearTarea'])->name('crearTarea');
 Route::delete('/home/{id}', [App\Http\Controllers\TareasController::class, 'eliminarTarea'])->name('tarea.destroy');
 Route::get('/home/ver/{id}', [App\Http\Controllers\TareasController::class, 'verTarea'])->name('verTarea');
