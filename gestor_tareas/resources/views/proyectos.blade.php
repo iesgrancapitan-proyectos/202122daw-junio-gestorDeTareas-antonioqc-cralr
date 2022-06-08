@@ -49,6 +49,7 @@
                                         <button class="btn" onclick="return confirm('¿Seguro que deseas eliminarlo?')"><img src="/assets/img/eliminar.svg"></button>
                                         <a href="{{ route('verProyecto',$proyecto1->id) }}"><img src="/assets/img/view.svg"></a>
                                         <button class="btn"><img src="/assets/img/account-plus-outline.png"></button>
+                                        <br>
                                     </div>
                                 </form>
                             </div>
