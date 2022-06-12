@@ -72,8 +72,10 @@
                                     {{ method_field('DELETE') }}
                                     <div>
                                         <button class="btn" onclick="return confirm('¿Seguro que deseas eliminarlo?')"><img src="/assets/img/eliminar.svg"></button>
+
                                         <a class="btn" href="{{ route('verProyecto',$proyecto->id) }}"><img src="/assets/img/view.svg"></a>
                                         <a class="btn" href="#"><img src="/assets/img/invitar.svg"></a>
+
                                     </div>
                                 </form>
                             </div>
@@ -120,6 +122,26 @@
                 </div>
             </form>
         </div>
+
+        <div class="text-center" id="formProjectInvite">
+            <form method="post" action="{{route('enviarInvitacion')}}">
+                @csrf
+                <div class="form-group row mt-3">
+                    <h2>Envíe su invitación</h2>
+                    <span class="boton-cerrar"><input type="button" value="X"></span>
+                </div>
+                <input type="hidden" name="id" value="{{Auth::id()}}" style="display: none;">
+
+                <div class="form-group row">
+                    <label for="correo" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-8 mb-2">
+                        <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary mb-4 mt-3" >Enviar</button>
+            </form>
+        </div>
     </div>
 
 
@@ -154,14 +176,26 @@
 
             $('.boton-cerrar').on('click',function() {
                 $('#formProject').css('display','none');
+                $('#formProjectInvite').css('display','none');
                 $('#allProjects').css('display',"grid");
+
             });
 
             $('.descripcion, .iconos').css('display','none');
+
+            $('#formProjectInvite').css('display','none');
  
             $('#nombre, #descripcion, #finalizacion').val("");
 
             $('#today, #next').css("display","none");
+
+            $('#formProjectInvite').css('display','none');
+
+            $('#buttoninvitar').on('click', function(e) {
+                e.preventDefault();
+                $('#formProjectInvite').css('display','block');
+                $('#allProjects').css('display',"none");
+            });
 
             if (matchMedia('(max-width: 767px)').matches) {
                     $('.card').addClass("col-sm-12");
