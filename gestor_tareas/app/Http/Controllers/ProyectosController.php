@@ -115,5 +115,13 @@ class ProyectosController extends Controller
 
     }
 
+    public function enviarInvitacion(Request $request){
+        // $user_project = new user_project();
+        // $user_project->id_user = $request->id_user;
+        // $user_project->id_project= $request->id_project;
+        $name = $request->correo;
+        dd($name);
+    }
+
 
 }
