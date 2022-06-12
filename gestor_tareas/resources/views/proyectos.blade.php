@@ -72,8 +72,10 @@
                                     {{ method_field('DELETE') }}
                                     <div>
                                         <button class="btn" onclick="return confirm('¿Seguro que deseas eliminarlo?')"><img src="/assets/img/eliminar.svg"></button>
-                                        <a href="{{ route('verProyecto',$proyecto->id) }}"><img src="/assets/img/view.svg"></a>
-                                        <button id="buttoninvitar" class="btn"><img src="/assets/img/invitar.svg"></button>
+
+                                        <a class="btn" href="{{ route('verProyecto',$proyecto->id) }}"><img src="/assets/img/view.svg"></a>
+                                        <a class="btn" href="#"><img src="/assets/img/invitar.svg"></a>
+
                                     </div>
                                 </form>
                             </div>

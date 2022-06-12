@@ -14,14 +14,14 @@
                     <a href="#tareasHoy" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hoy</a>
                     <ul class="collapse list-unstyled" id="tareasHoy">
                         @foreach($tareasHoy as $tarea)
-                            <a href="#" id="tareaHoy-{{$tarea->id}}">{{$tarea->name}}</a>
+                            <a href="/home/ver/{{$tarea->id}}" id="tareaHoy-{{$tarea->id}}">{{$tarea->name}}</a>
                             </li>
                         @endforeach
                     </ul>
                 </li>
-                <li id="next">
+                {{-- <li id="next">
                     <a href="#">Próximas</a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{ route('proyectos') }}">Proyectos</a>
                     {{-- <ul class="collapse list-unstyled" id="proyectosSubmenu">

@@ -89,9 +89,9 @@ main{
 
 /*Tareas*/
 
-/* .tarea{
-    text-align: center;
-} */
+.tarea{
+    cursor: pointer;
+}
 
 #buttonAddTask{
     /* margin-right: 30px; */
