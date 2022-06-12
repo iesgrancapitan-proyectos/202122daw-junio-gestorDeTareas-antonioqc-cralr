@@ -32,12 +32,11 @@ Route::post('/home/addComment', [App\Http\Controllers\TareasController::class, '
 
 Route::get('/home/proyectos', [App\Http\Controllers\ProyectosController::class, 'index'])->name('proyectos');
 Route::post('/home/crearProyecto', [App\Http\Controllers\ProyectosController::class, 'crearProyecto'])->name('crearProyecto');
-Route::get('/home/enviarInvitacion', [App\Http\Controllers\ProyectosController::class, 'enviarInvitacion'])->name('enviarInvitacion');
 Route::delete('/home/proyectos/{id}', [App\Http\Controllers\ProyectosController::class, 'eliminarProyecto'])->name('proyecto.destroy');
 Route::get('/home/proyectos/ver/{id}', [App\Http\Controllers\ProyectosController::class, 'verProyecto'])->name('verProyecto');
 Route::post('/home/proyectos/editar/{id}', [App\Http\Controllers\ProyectosController::class, 'editarProyecto'])->name('editarProyecto');
 Route::post('/home/proyectos/addComment', [App\Http\Controllers\ProyectosController::class, 'addCommentProject'])->name('addCommentProject');
-
+Route::post('/home/proyectos/enviarcorreo',[App\Http\Controllers\ProyectosController::class, 'sendEmailInvitation'])->name('sendemailinvitation');
 
 
 

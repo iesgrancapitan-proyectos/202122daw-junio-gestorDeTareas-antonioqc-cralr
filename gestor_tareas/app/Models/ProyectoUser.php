@@ -11,7 +11,7 @@ class ProyectoUser extends Model
     protected $fillable=['id_user','id_project'];
 
     protected $guarded = ['id'];
-
+    public $timestamps = false;
     
     
 }
