@@ -41,7 +41,7 @@ class ProyectosController extends Controller
         
         if($request->buscar_proyecto){
             foreach($proyectos as $proyecto){
-                $busquedas = Proyecto::where("name", "LIKE", "%{$request->buscar_proyecto}%")->get();
+                $busquedas = Proyecto::where("name", "LIKE", "%{$request->buscar_proyecto}%")->orderBy('date_finally','ASC')->get();
                 return view('proyectos')->with(compact("busquedas",'tareasHoy','tareas','proyectos','proyectosuser'));
             }    
         }
@@ -109,6 +109,7 @@ class ProyectosController extends Controller
 
         $comentario->id_project = $request->id_proyecto;
         $comentario->name = $request->nombre_comentario;
+        $comentario->id_user = $request->id_user;
         $comentario->description = $request->desc_comentario;
         $comentario->date_create = $request->date_create = Carbon::now();
 

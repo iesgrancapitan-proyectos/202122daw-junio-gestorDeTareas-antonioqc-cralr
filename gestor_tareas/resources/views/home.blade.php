@@ -41,8 +41,11 @@
                         <div class="collapse" id="collapse-{{$tarea1->id}}">
                             <div class="card" >
                                 <div class="card-footer text-muted"><img class="me-1" id="iconocalendario" src="/assets/img/calendario.png">{{\Carbon\Carbon::parse($tarea1->date_finally)->format('d/m/Y')}}</div>
-                                <div class="card-text mt-4 mb-4 me-4 ms-4">{{$tarea1->description}}</div>
-
+                                @if($tarea->description != "")
+                                <div class="card-text mt-4 mb-4 me-4 ms-4">{{$tarea->description}}</div>
+                                @else
+                                    <div class="card-text mt-4 mb-4 me-4 ms-4">Sin descripción</div>
+                                @endif
                                 <form action="{{ route('tarea.destroy', $tarea1->id) }}" method ="POST" >
                                     @csrf
                                     {{ method_field('DELETE') }}
@@ -66,8 +69,11 @@
                             <div class="collapse" id="collapse-{{$tarea->id}}">
                                 <div class="card" >
                                     <div class="card-footer text-muted"><img class="me-1" id="iconocalendario" src="/assets/img/calendario.png">{{\Carbon\Carbon::parse($tarea->date_finally)->format('d/m/Y')}}</div>
-                                    <div class="card-text mt-4 mb-4 me-4 ms-4">{{$tarea->description}}</div>
-
+                                    @if($tarea->description != "")
+                                        <div class="card-text mt-4 mb-4 me-4 ms-4">{{$tarea->description}}</div>
+                                    @else
+                                        <div class="card-text mt-4 mb-4 me-4 ms-4">Sin descripción</div>
+                                    @endif
                                     <form action="{{ route('tarea.destroy', $tarea->id) }}" method ="POST" >
                                         @csrf
                                         {{ method_field('DELETE') }}
