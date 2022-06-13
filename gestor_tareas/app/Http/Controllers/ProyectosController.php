@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Notification;
+use App\Notifications\MailParametrizado;
 
 class ProyectosController extends Controller
 {
@@ -115,13 +117,33 @@ class ProyectosController extends Controller
 
     }
 
-    public function enviarInvitacion(Request $request){
-        // $user_project = new user_project();
-        // $user_project->id_user = $request->id_user;
-        // $user_project->id_project= $request->id_project;
-        $name = $request->correo;
-        dd($name);
+    public function sendEmailInvitation(Request $request){
+
+        $email = $request->email_input;
+        $usuario = User::where('email',$email)->get(); 
+        $id_proyecto = $request->id_proyecto;
+        $proyecto = Proyecto::where('id',$id_proyecto)->get(); 
+        $usuario_repetido = ProyectoUser::where('id_user',$usuario[0]->id)->where('id_project',$id_proyecto)->get();
+
+        if($usuario_repetido[0]['id_user'] != $usuario[0]->id){
+
+            $details = [
+                'greeting' => 'Buenas '. $usuario[0]->name.' ,',
+                 'body' => 'Ha sido invitado al proyecto '.$proyecto[0]->name,
+                 'thanks' => 'Gracias por usar WorkFine',
+                 'actionText' => '',
+                 'actionURL' => ''
+            ];
+            Notification::route('mail', $email)->notify(new MailParametrizado($details));
+
+            $proyectouser = new ProyectoUser();
+            $proyectouser->id_user = $usuario[0]->id;
+            $proyectouser->id_project = $id_proyecto;
+            $proyectouser->save();
+            return redirect()->back();
+        }
+        else{
+            return redirect()->back()->withErrors('Ya ha invitado a ese usuario al proyecto '.$proyecto[0]->name);
+        }       
     }
-
-
 }
