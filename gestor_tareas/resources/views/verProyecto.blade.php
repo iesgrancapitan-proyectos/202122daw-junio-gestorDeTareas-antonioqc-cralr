@@ -13,7 +13,7 @@
             <p class="card-text"> {{$proyecto->description}}</p>
             <h6>Comentarios</h6><br/>
             @foreach ($comentarios as $comentario)
-                <footer class="blockquote-footer "><cite title="Source Title">{{$comentario->name}}: </cite> {{$comentario->description}}</footer>    
+                <footer class="blockquote-footer "><cite title="Source Title">{{$comentario->name}}: </cite> {{$comentario->description}} ({{$comentario->user->name}})</footer>    
             @endforeach
 
             <button class="btn btn-primary" style="float:right;" type="button" id="addComent"><img src="/assets/img/comentario.svg"></button>
@@ -55,6 +55,7 @@
         <div class="card-header text-center">Comentario<span class="boton-cerrar"><input type="button" value="X" style="margin-right: 30px;"></span></div>
         <form method="post" action="{{route('addCommentProject')}}">
                 @csrf
+                <input type="hidden" name="id_user" value="{{Auth::id()}}" style="display: none;">
                 <input type="hidden" name="id_proyecto" value="{{$proyecto->id}}" style="display: none;">
                 <div class="form-group row input-form-comments mt-4">
                     <div class="col-sm-8 mb-2 input-comments" style="width: 50%;">

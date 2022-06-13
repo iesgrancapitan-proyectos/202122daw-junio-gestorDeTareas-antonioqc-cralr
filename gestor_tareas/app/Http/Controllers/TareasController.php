@@ -31,7 +31,7 @@ class TareasController extends Controller
     public function index(Request $request)
     {   
         $id=Auth::id();
-        $tareas = Tarea::where('id_user',$id)->get();
+        $tareas = Tarea::where('id_user',$id)->orderBy('date_finally','ASC')->get();
         $tareasHoy=Tarea::where('id_user',$id)->whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
 
         if($request->buscar_tarea){  
