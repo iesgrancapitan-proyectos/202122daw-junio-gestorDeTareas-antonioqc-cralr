@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Comments_project extends Model
 {
     protected $table='comments_projects';
@@ -14,5 +15,9 @@ class Comments_project extends Model
 
     public function proyecto(){
         return $this->belongsTo('App\Models\Proyecto','id_project');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User','id_user');
     }
 }
