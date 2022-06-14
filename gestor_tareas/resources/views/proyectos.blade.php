@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-
     <div class="row">
         
         <div class="d-grid d-md-block ">
@@ -92,16 +91,16 @@
             @endif
         </div>
 
+       
         
     @if($errors->any())
-        <!-- <h4 style="color: red; margin-top:100px; text-align:center;">{{$errors->first()}}</h4> -->
-        <div class="card border-warning mb-3" style="max-width: 18rem;">
-        <div class="card-header">Header</div>
-        <div class="card-body text-warning">
-            <h5 class="card-title">Warning card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
+
+        <h4 style="color: red; margin-top:100px; text-align:center;" class="msg_envio">{{$errors->first()}}</h4>
+    @endif
+
+    @if(session()->has('message'))
+        <h4 style="color: green; margin-top:100px; text-align:center;" class="msg_envio"> {{ session()->get('message') }}</h4> 
+
     @endif
 
     </div>
@@ -143,36 +142,38 @@
 
     </div>
 
+    @foreach ($proyectos as $proyecto)
+    <div class="modal fade" id="modal-invitar-{{$proyecto->id}}" tabindex="-1" role="dialog" data-backdrop="false" style="background-color:rgba(0, 0, 0, 0.5);" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content" >
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalLabel">Invitación</h5>
+             <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+           </div>
+           <form method="post" action="{{route('sendemailinvitation')}}">
+               @csrf
+               <div class="modal-body">
+                   <div class="form-group">
+                       <input type="email" class="form-control" name="email_input" id="email_input" placeholder="Correo electrónico">
+                       <input type="hidden" value='{{$proyecto->id}}' name="id_proyecto" id="id_proyecto">
+                   </div>
+               </div>
+               <div class="modal-footer">
+                   <button type="submit" class="btn btn-primary" >Enviar</button>
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+               </div>
+           </form>
+         </div>
+       </div>
+     </div>
+     @endforeach
+    
 
 @endsection
 
  <!-- Modal -->
- @foreach ($proyectos as $proyecto)
- <div class="modal fade" id="modal-invitar-{{$proyecto->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" >
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Invitación</h5>
-          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form method="post" action="{{route('sendemailinvitation')}}">
-            @csrf
-            <div class="modal-body">
-                <div class="form-group">
-                    <input type="email" class="form-control" name="email_input" id="email_input" placeholder="Correo electrónico">
-                    <input type="hidden" value='{{$proyecto->id}}' name="id_proyecto" id="id_proyecto">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  @endforeach
 
+ 
 
 
 
@@ -188,6 +189,8 @@
 <script>
     $(document).ready(function () {
 
+        
+
         $('#prueba').DataTable({
             dom: 'Bfrtip',
             buttons: [
@@ -196,6 +199,9 @@
                     ],
             "ordering": false
         });
+
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
 
           $('#buttonAddProyect').on('click', function () {
                 $('#formProject').css('display','block');
@@ -230,6 +236,10 @@
                     $('.card').removeClass("col-sm-6");
                     $('.proyecto').css("text-align","center");
             }
+
+            setTimeout(function() {
+                $(".msg_envio").fadeOut(1200);
+            },1500);
     });
 </script>
 
