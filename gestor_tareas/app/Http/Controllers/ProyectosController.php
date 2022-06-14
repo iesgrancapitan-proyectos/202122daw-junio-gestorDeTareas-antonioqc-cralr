@@ -121,16 +121,20 @@ class ProyectosController extends Controller
     public function sendEmailInvitation(Request $request){
 
         $email = $request->email_input;
-        $usuario = User::where('email',$email)->get(); 
+        $usuario = User::where('email',$email)->first();    
+        
         $id_proyecto = $request->id_proyecto;
-        $proyecto = Proyecto::where('id',$id_proyecto)->get(); 
-        $usuario_repetido = ProyectoUser::where('id_user',$usuario[0]->id)->where('id_project',$id_proyecto)->get();
 
-        if($usuario_repetido[0]['id_user'] != $usuario[0]->id){
+        $proyecto = Proyecto::where('id',$id_proyecto)->first(); 
+        
+        $usuario_repetido = ProyectoUser::where('id_user',$usuario->id)->where('id_project',$id_proyecto)->first();
 
+        /* return $usuario_repetido; */
+
+        if($usuario_repetido == []){
             $details = [
-                'greeting' => 'Buenas '. $usuario[0]->name.' ,',
-                 'body' => 'Ha sido invitado al proyecto '.$proyecto[0]->name,
+                'greeting' => 'Buenas '. $usuario->name.' ,',
+                 'body' => 'Ha sido invitado al proyecto '.$proyecto->name,
                  'thanks' => 'Gracias por usar WorkFine',
                  'actionText' => '',
                  'actionURL' => ''
@@ -138,13 +142,14 @@ class ProyectosController extends Controller
             Notification::route('mail', $email)->notify(new MailParametrizado($details));
 
             $proyectouser = new ProyectoUser();
-            $proyectouser->id_user = $usuario[0]->id;
+            $proyectouser->id_user = $usuario->id;
             $proyectouser->id_project = $id_proyecto;
             $proyectouser->save();
-            return redirect()->back();
+            return redirect()->back()->with('message', '¡Invitación enviada correctamente!');
         }
         else{
-            return redirect()->back()->withErrors('Ya ha invitado a ese usuario al proyecto '.$proyecto[0]->name);
+           
+            return redirect()->back()->withErrors('Ya ha invitado a ese usuario al proyecto, '.$proyecto->name);
         }       
     }
 }
