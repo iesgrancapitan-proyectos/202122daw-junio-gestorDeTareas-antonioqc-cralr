@@ -94,13 +94,15 @@
        
         
     @if($errors->any())
-
-        <h4 style="color: red; margin-top:100px; text-align:center;" class="msg_envio">{{$errors->first()}}</h4>
+    <div class="alert alert-danger" style="margin-top: 70px; text-align:center;" role="alert">
+        {{$errors->first()}}
+      </div>
     @endif
 
     @if(session()->has('message'))
-        <h4 style="color: green; margin-top:100px; text-align:center;" class="msg_envio"> {{ session()->get('message') }}</h4> 
-
+        <div class="alert alert-success" style="margin-top: 70px; text-align:center;"  role="alert">
+            {{ session()->get('message') }}
+          </div>
     @endif
 
     </div>

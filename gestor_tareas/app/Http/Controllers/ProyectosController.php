@@ -149,7 +149,7 @@ class ProyectosController extends Controller
         }
         else{
            
-            return redirect()->back()->withErrors('Ya ha invitado a ese usuario al proyecto, '.$proyecto->name);
+            return redirect()->back()->withErrors('Ya ha invitado al usuario '.$usuario->name.' a '.$proyecto->name);
         }       
     }
 }
