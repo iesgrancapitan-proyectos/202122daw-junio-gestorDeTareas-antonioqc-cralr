@@ -126,10 +126,16 @@ class ProyectosController extends Controller
         $id_proyecto = $request->id_proyecto;
 
         $proyecto = Proyecto::where('id',$id_proyecto)->first(); 
-        
+
+        if($usuario == null){
+            return redirect()->back()->with('messageError', '¡Debe seleccionar un usuario para realizar la invitación!');
+        }
+
         $usuario_repetido = ProyectoUser::where('id_user',$usuario->id)->where('id_project',$id_proyecto)->first();
 
         /* return $usuario_repetido; */
+
+        
 
         if($usuario_repetido == []){
             $details = [
