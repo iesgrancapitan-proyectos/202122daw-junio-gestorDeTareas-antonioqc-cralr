@@ -94,14 +94,20 @@
        
         
     @if($errors->any())
-    <div class="alert alert-danger" style="margin-top: 70px; text-align:center;" role="alert">
+    <div class="alert alert-danger msg_envio" style="margin-top: 70px; text-align:center;" role="alert">
         {{$errors->first()}}
       </div>
     @endif
 
     @if(session()->has('message'))
-        <div class="alert alert-success" style="margin-top: 70px; text-align:center;"  role="alert">
+        <div class="alert alert-success msg_envio" style="margin-top: 70px; text-align:center;"  role="alert">
             {{ session()->get('message') }}
+          </div>
+    @endif
+
+    @if(session()->has('messageError'))
+        <div class="alert alert-warning msg_envio" style="margin-top: 70px; text-align:center;"  role="alert">
+            {{ session()->get('messageError') }}
           </div>
     @endif
 
@@ -156,12 +162,12 @@
                @csrf
                <div class="modal-body">
                    <div class="form-group">
-                       <input type="email" class="form-control" name="email_input" id="email_input" placeholder="Correo electrónico">
+                       <input type="email" class="form-control email-{{$proyecto->id}}" name="email_input" id="email_input" placeholder="Correo electrónico">
                        <input type="hidden" value='{{$proyecto->id}}' name="id_proyecto" id="id_proyecto">
                    </div>
                </div>
                <div class="modal-footer">
-                   <button type="submit" class="btn btn-primary" >Enviar</button>
+                   <button type="submit" class="btn btn-primary bt-{{$proyecto->id}}">Enviar</button>
                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                </div>
            </form>
@@ -172,12 +178,6 @@
     
 
 @endsection
-
- <!-- Modal -->
-
- 
-
-
 
 @section('js')
 
@@ -191,7 +191,11 @@
 <script>
     $(document).ready(function () {
 
-        
+        /* if($('.email-'+$('#id_proyecto').val()).text() == " "){
+            
+            $('.bt'+$('#id_proyecto').val()).removeAttr('disabled');
+        } */
+
 
         $('#prueba').DataTable({
             dom: 'Bfrtip',
