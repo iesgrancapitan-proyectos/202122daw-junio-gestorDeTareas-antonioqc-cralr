@@ -42,7 +42,7 @@
                             <div class="card" >
                                 <div class="card-footer text-muted"><img class="me-1" id="iconocalendario" src="/assets/img/calendario.png">{{\Carbon\Carbon::parse($tarea1->date_finally)->format('d/m/Y')}}</div>
                                 @if($tarea->description != "")
-                                <div class="card-text mt-4 mb-4 me-4 ms-4">{{$tarea->description}}</div>
+                                    <div class="card-text mt-4 mb-4 me-4 ms-4">{{$tarea->description}}</div>
                                 @else
                                     <div class="card-text mt-4 mb-4 me-4 ms-4">Sin descripción</div>
                                 @endif

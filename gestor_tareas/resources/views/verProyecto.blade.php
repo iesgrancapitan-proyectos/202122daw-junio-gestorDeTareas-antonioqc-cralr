@@ -75,10 +75,8 @@
     </div>
 </div>
 
-@endsection
-
 <!-- Modal -->
-<div class="modal fade" id="modal-chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-chat" tabindex="-1" data-backdrop="false" style="background-color:rgba(0, 0, 0, 0.5);" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" >
         <div class="modal-header">
@@ -99,6 +97,10 @@
       </div>
     </div>
   </div>
+
+@endsection
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
