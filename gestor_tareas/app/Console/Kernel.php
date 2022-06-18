@@ -22,24 +22,27 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $user = User::where('name','antonio')->get();
-            $tasks = Tarea::all();
-            
-            foreach ($tasks as $tarea) {
+            $user = User::all();
 
-                $fechaTarea = Carbon::parse($tarea->date_finally)->toDateString();
-                $hoy = Carbon::now()->addDays(1);
-                if($hoy->isSameDay($fechaTarea)) { 
-                    $details = [
-                        'greeting' => 'Hola ' . $user[0]->name,
-                        'body' => 'Le recordamos que la tarea con título ' . $tarea->name . ' va a finalizar en el plazo de un día.',
-                        'thanks' => '¡Finalice la tarea cuanto antes!',
-                        'actionText' => 'View My Site',
-                        'actionURL' => url('https://hackthestuff.com'),
-                        'order_id' => 'Order-20190000151'
-                    ];
+            foreach ($user as $u) {
+                $tasks = Tarea::where('id_user',$u->id)->get();
             
-                    Notification::send($user, new MailParametrizado($details));
+                foreach ($tasks as $tarea) {
+
+                    $fechaTarea = Carbon::parse($tarea->date_finally)->toDateString();
+                    $hoy = Carbon::now()->addDays(1);
+                    if($hoy->isSameDay($fechaTarea)) { 
+                        $details = [
+                            'greeting' => 'Hola ' . $u->name,
+                            'body' => 'Le recordamos que la tarea con título ' . $tarea->name . ' va a finalizar en el plazo de un día.',
+                            'thanks' => '¡Finalice la tarea cuanto antes!',
+                            'actionText' => 'View My Site',
+                            'actionURL' => url('https://hackthestuff.com'),
+                            'order_id' => 'Order-20190000151'
+                        ];
+                
+                        Notification::send($u, new MailParametrizado($details));
+                    }
                 }
             }
 
