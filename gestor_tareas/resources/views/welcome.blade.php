@@ -15,19 +15,22 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset ('css/styles.css')}}" rel="stylesheet" />
         <link rel="stylesheet" href={{ asset('css/pages.css') }}>
+        <link rel="stylesheet" href={{ asset('css/pluton.css') }}>
+        <link rel="stylesheet" href={{ asset('css/style.css') }}>
+ -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     </head>
-    <body>
-        <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+    <body>    <!-- Service section start -->
+    <div class="section primary-section" id="service">
+    <!-- <nav class="navbar navbar-light bg-light static-top"> -->
             <div class="container" id="navegacion">
                 <div>
                     <img src="assets/img/logo.png" alt="" srcset="">
-                    <a class="navbar-brand" href="#!">WorkFine</a>
+                    <a id="titulo" href="#!">WORKFINE</a>
                 </div>
                 @if (Route::has('login'))
-                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
                             <a href="{{ url('/home') }}" class="btn btn-primary">Home</a>
                         @else
@@ -40,64 +43,90 @@
                     </div>
                 @endif
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 class="mb-5">¿No sabes como organizar tus tareas?</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form class="form-subscribe" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
-                                <div class="row">
-                                    <!-- <div class="col">
-                                        <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-                                    </div> -->
-                                    <div><a href="{{ route('register') }}" class="btn btn-primary btn-lg">¡Regístrate ya!</a></div>
-
-                                </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
+        <!-- </nav> -->
+        <div class="container">
+            <!-- Start title section -->
+            <div class="title">
+                <h1>¡Organizate con WorkFine!</h1>
+                <!-- Section's title goes here -->
+                <p>Tu gestor de tareas más sencillo. Concentrate y organizate con WorkFine</p>
+                <img src="assets/img/imagentareasinicio.png" width="100%">
+                <br></br>
+                <div><a href="{{ route('register') }}" class="btn btn-primary btn-lg">¡Regístrate ya!</a></div>
+                <br></br>
+            </div>
+        </div>
+    </div>
+    <!-- Service section end -->
+    <!-- Portfolio section start -->
+    <div class="section secondary-section " id="portfolio">
+        <div class="container">
+            <div class=" title">
+                <h1>Have You Seen our Works?</h1>
+                <p>Duis mollis placerat quam, eget laoreet tellus tempor eu. Quisque dapibus in purus in dignissim.</p>
+            </div>
+            <!-- Start details for portfolio project 1 -->
+            <div id="single-project">
+                <div id="slidingDiv" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img src="images/Portfolio01.png" alt="project 1" />
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Webste for Some Client</h3>
+                                <span class="show_hide close"><i class="icon-cancel"></i></span>
+                            </div>
+                            <div class="project-info">
+                                <div><span>Client</span>Some Client Name</div>
+                                <div><span>Date</span>July 2013</div>
+                                <div><span>Skills</span>HTML5, CSS3, JavaScript</div>
+                                <div><span>Link</span>http://examplecomp.com</div>
+                            </div>
+                            <p>Believe in yourself! Have faith in your abilities! Without a humble but reasonable confidence in your own powers you cannot be successful or happy.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 1 -->
+                <!-- Start details for portfolio project 2 -->
+                <div id="slidingDiv1" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img src="images/Portfolio02.png" alt="project 2">
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Webste for Some Client</h3>
+                                <span class="show_hide close"><i class="icon-cancel"></i></span>
+                            </div>
+                            <div class="project-info">
+                                <div><span>Client</span>Some Client Name</div>
+                                <div><span>Date</span>July 2013</div>
+                                <div><span>Skills</span>HTML5, CSS3, JavaScript</div>
+                                <div><span>Link</span>http://examplecomp.com</div>
+                            </div>
+                            <p>Life is a song - sing it. Life is a game - play it. Life is a challenge - meet it. Life is a dream - realize it. Life is a sacrifice - offer it. Life is love - enjoy it.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
-
-        <!-- Footer-->
-        <footer class="footer bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-3">
-                            <li class="list-inline-item me-4">
+        </div>
+    </div>
+    <!-- Portfolio section end -->
+    <!-- About us section start -->
+    <div class="section primary-section" id="about">
+        <div class="container">
+            <div class="title">
+                <h1>Contáctanos</h1>
+                <p></p>
+            </div>
+            <div class="row-fluid team">
+                <div class="span4" id="first-person">
+                    <div class="thumbnail">
+                        <h3>Antonio Quesada Cuadrado</h3>
+                        <br>
+                        <ul class="social">
+                        <li class="list-inline-item me-4">
                                 <a href="#!"><i class="bi-linkedin fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
@@ -107,11 +136,19 @@
                                 <a href="#!"><i class="bi-telegram fs-3"></i></a>
                             </li>
                         </ul>
-                        <ul class="no-padding">Rafael Miguel Cruz Álvarez</ul>
+                        <div class="mask">
+                            <h2>Copywriter</h2>
+                            <p>When you stop expecting people to be perfect, you can like them for who they are.</p>
+                        </div>
                     </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-3">
-                            <li class="list-inline-item me-4">
+                </div>
+                <br>
+                <div class="span4" id="second-person">
+                    <div class="thumbnail">
+                        <h3>Rafael Miguel Cruz Álvarez</h3>
+                        <br>
+                        <ul class="social">
+                        <li class="list-inline-item me-4">
                                 <a href="#!"><i class="bi-linkedin fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
@@ -121,19 +158,36 @@
                                 <a href="#!"><i class="bi-telegram fs-3"></i></a>
                             </li>
                         </ul>
-                        <ul>Antonio Quesada Cuadrado</ul>
+                        <div class="mask">
+                            <h2>Designer</h2>
+                            <p>When you stop expecting people to be perfect, you can like them for who they are.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{{asset ('js/scripts.js')}}"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+        </div>
+    </div>
+    <!-- Price section end -->
+    <!-- Newsletter section start -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script>
+    function inIframe () {
+        try {
+            return window.self !== window.top;
+        } catch (e) {
+            return true;
+        }
+    }
+
+    if(!inIframe()){
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-54039406-1', 'auto');
+        ga('send', 'pageview');
+    }
+    </script>
+</body>
 </html>

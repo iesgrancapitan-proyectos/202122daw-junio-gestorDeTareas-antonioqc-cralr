@@ -90,10 +90,6 @@ body {
 }
 
 @media (max-width: 530px) {
-  #navegacion {
-    place-content: center;
-  }
-
   #navegacion .btn {
     font-size: 15px;
   }

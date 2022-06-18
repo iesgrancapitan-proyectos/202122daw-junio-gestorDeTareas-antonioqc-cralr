@@ -9,6 +9,10 @@
 .divider-color         { border-color: #BDBDBD; }
 
 
+#navegacion {
+    display: grid;
+    place-items: center;
+}
 
 #prueba_paginate,#prueba_info,#prueba_filter{display: none;}
 
@@ -181,6 +185,12 @@ main{
 
 /*Tablet*/
 @media (min-width: 768px) and (max-width: 1023px) {
+    #navegacion {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+
     /*Sidebar*/
     #sidebar{
         min-width: 250px !important;
@@ -214,6 +224,12 @@ main{
 
 
 @media (min-width: 1024px){
+    #navegacion {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+    
     /*Sidebar*/
     #sidebar{
         min-width: 250px !important;
