@@ -94,6 +94,11 @@ body {
     font-size: 15px;
   }
 
+  #navegacion .btn :hover {
+    background-color: #000;
+    color: white;
+  }
+
   form .btn {
     font-size: 15px;
   }

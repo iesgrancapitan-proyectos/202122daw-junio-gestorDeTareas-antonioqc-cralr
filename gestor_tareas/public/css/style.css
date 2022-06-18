@@ -365,7 +365,7 @@ p {
 }
 .primary-section {
     /* background:#303F9F; */
-    background-image: linear-gradient(to bottom, #4b5bc4, #7987df, #303F9F);
+    background-image: linear-gradient(to top, #4b5bc4, #7987df, #303F9F);
 }
 .primary-section .triangle {
     border-top: 40px solid #FFC107;
@@ -380,7 +380,7 @@ p {
     color:#FFF;
 }
 .secondary-section {
-    background-image: linear-gradient(to top, #4b5bc4, #7987df, #303F9F);
+    background-image: linear-gradient(to bottom, #4b5bc4, #7987df, #303F9F);
 }
 .secondary-section .title {
     border-bottom: 1px solid #181A1C;
