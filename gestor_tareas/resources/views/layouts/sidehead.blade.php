@@ -15,41 +15,28 @@
                 <span></span>
                 <span></span>
             </button>
-            {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon">
-                        <i class="fa-solid fa-user" style="color:#fff; font-size:28px;"></i>
-                </span>
-            </button> --}}
         
         @endguest
 
-
-
-        {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> --}}
-            
-            <!-- Left Side Of Navbar -->
-         {{--    <ul class="navbar-nav me-auto">
-
-            </ul> --}}
-            @guest
+        @guest
             @else
                 @if (Route::is('home'))
-                    <form class="form-inline my-2 my-lg-0" method="get" action="{{route('home')}}">
+                    <form class="d-flex" method="get" action="{{route('home')}}">
                         @csrf
                         <div class="row" id="buscador">
-                            <input class="form-control mr-sm-2 col-8" type="search" placeholder="Buscar tareas" aria-label="Search" name="buscar_tarea" id="buscadorInput">
+                            <input class="form-control" type="search" placeholder="Buscar tareas" aria-label="Search" name="buscar_tarea" id="buscadorInput">
                             <button class="btn btn-outline-success my-2 my-sm-0 col-4" type="submit" id="buscar" name="buscar">Buscar</button>
                         </div>
-                      </form>
+                        </form>
                 
                 @elseif (Route::is('proyectos'))
-                <form class="form-inline my-2 my-lg-0" method="get" action="{{route('proyectos')}}">
+                <form class="d-flex" method="get" action="{{route('proyectos')}}">
                     @csrf
                     <div class="row" id="buscador">
-                        <input class="form-control mr-sm-2 col-8" type="search" placeholder="Buscar proyectos" aria-label="Search" name="buscar_proyecto" id="buscadorInputProeyctos">
+                        <input class="form-control" type="search" placeholder="Buscar proyectos" aria-label="Search" name="buscar_proyecto" id="buscadorInputProeyctos">
                         <button class="btn btn-outline-success my-2 my-sm-0 col-4" type="submit" id="buscarProyecto" name="buscar">Buscar</button>
                     </div>
-                  </form>
+                    </form>
                 @endif
             @endguest
             <!-- Right Side Of Navbar -->
@@ -77,7 +64,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="{{ route('logout') }}" 
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
