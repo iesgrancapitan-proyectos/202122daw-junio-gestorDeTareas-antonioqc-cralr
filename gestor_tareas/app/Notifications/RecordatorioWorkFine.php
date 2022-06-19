@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class MailParametrizado extends Notification
+class RecordatorioWorkFine extends Notification
 {
     use Queueable;
 

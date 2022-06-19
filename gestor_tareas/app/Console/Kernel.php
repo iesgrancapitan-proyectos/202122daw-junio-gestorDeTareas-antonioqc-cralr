@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Tarea;
 use App\Models\User;
 use Notification;
-use App\Notifications\MailParametrizado;
+use App\Notifications\RecordatorioWorkFine;
 use Carbon\Carbon;
 
 class Kernel extends ConsoleKernel
@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
                             'order_id' => 'Order-20190000151'
                         ];
                 
-                        Notification::send($u, new MailParametrizado($details));
+                        Notification::send($u, new RecordatorioWorkFine($details));
                     }
                 }
             }
