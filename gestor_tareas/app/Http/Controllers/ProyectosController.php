@@ -142,7 +142,7 @@ class ProyectosController extends Controller
                 'greeting' => 'Buenas '. $usuario->name.' ,',
                  'body' => 'Ha sido invitado al proyecto '.$proyecto->name,
                  'thanks' => 'Gracias por usar WorkFine',
-                 'actionText' => '',
+                 'actionText' => 'Proyecto',
                  'actionURL' => ''
             ];
             Notification::route('mail', $email)->notify(new RecordatorioWorkFine($details));
