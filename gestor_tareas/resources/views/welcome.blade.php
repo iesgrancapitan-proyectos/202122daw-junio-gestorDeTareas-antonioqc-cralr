@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>WorkFine</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/logo.png"/>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     </head>
-    <body>    <!-- Service section start -->
+    <body>   
     <div class="section primary-section" id="service">
     <!-- <nav class="navbar navbar-light bg-light static-top"> -->
             <div class="container" id="navegacion">
