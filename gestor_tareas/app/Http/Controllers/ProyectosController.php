@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Notification;
-use App\Notifications\MailParametrizado;
+use App\Notifications\RecordatorioWorkFine;
 
 class ProyectosController extends Controller
 {
@@ -145,7 +145,7 @@ class ProyectosController extends Controller
                  'actionText' => '',
                  'actionURL' => ''
             ];
-            Notification::route('mail', $email)->notify(new MailParametrizado($details));
+            Notification::route('mail', $email)->notify(new RecordatorioWorkFine($details));
 
             $proyectouser = new ProyectoUser();
             $proyectouser->id_user = $usuario->id;

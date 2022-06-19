@@ -484,6 +484,17 @@ p {
     opacity: 0;
     display: none;
 }
+
+
+
+.infotareaproyecto p {
+    text-align: justify;
+}
+
+.infotareaproyecto {
+    margin: 4%;
+    place-self: center;
+}
 /*
 3.3 About
 ******************************************************************/

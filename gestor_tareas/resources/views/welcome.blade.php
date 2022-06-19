@@ -58,58 +58,26 @@
     </div>
     <!-- Service section end -->
     <!-- Portfolio section start -->
-    <div class="section secondary-section " id="portfolio">
-        <div class="container">
-            <div class=" title">
-                <h1>Have You Seen our Works?</h1>
-                <p>Duis mollis placerat quam, eget laoreet tellus tempor eu. Quisque dapibus in purus in dignissim.</p>
-            </div>
-            <!-- Start details for portfolio project 1 -->
-            <div id="single-project">
-                <div id="slidingDiv" class="toggleDiv row-fluid single-project">
-                    <div class="span6">
-                        <img src="images/Portfolio01.png" alt="project 1" />
-                    </div>
-                    <div class="span6">
-                        <div class="project-description">
-                            <div class="project-title clearfix">
-                                <h3>Webste for Some Client</h3>
-                                <span class="show_hide close"><i class="icon-cancel"></i></span>
-                            </div>
-                            <div class="project-info">
-                                <div><span>Client</span>Some Client Name</div>
-                                <div><span>Date</span>July 2013</div>
-                                <div><span>Skills</span>HTML5, CSS3, JavaScript</div>
-                                <div><span>Link</span>http://examplecomp.com</div>
-                            </div>
-                            <p>Believe in yourself! Have faith in your abilities! Without a humble but reasonable confidence in your own powers you cannot be successful or happy.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End details for portfolio project 1 -->
-                <!-- Start details for portfolio project 2 -->
-                <div id="slidingDiv1" class="toggleDiv row-fluid single-project">
-                    <div class="span6">
-                        <img src="images/Portfolio02.png" alt="project 2">
-                    </div>
-                    <div class="span6">
-                        <div class="project-description">
-                            <div class="project-title clearfix">
-                                <h3>Webste for Some Client</h3>
-                                <span class="show_hide close"><i class="icon-cancel"></i></span>
-                            </div>
-                            <div class="project-info">
-                                <div><span>Client</span>Some Client Name</div>
-                                <div><span>Date</span>July 2013</div>
-                                <div><span>Skills</span>HTML5, CSS3, JavaScript</div>
-                                <div><span>Link</span>http://examplecomp.com</div>
-                            </div>
-                            <p>Life is a song - sing it. Life is a game - play it. Life is a challenge - meet it. Life is a dream - realize it. Life is a sacrifice - offer it. Life is love - enjoy it.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="section secondary-section ">
+        <!-- Start details for portfolio project 1 -->
+        <div class="infotareaproyecto">
+            <h1>Añade, organiza tus tareas y aumenta tu productividad</h1>
+            <p>Tus listas de tareas se organizarán en las vista principal donde se encuentran todas y en la vista de Hoy. Todas ellas se ordenan por orden de vencimiento.</p>
         </div>
+        <!-- End details for portfolio project 1 -->
+        <!-- Start details for portfolio project 2 -->
+        <div class="infotareaproyecto">
+            <img src="assets/img/visualizaciontarea.png" alt="" srcset="">
+        </div>
+        <div class="infotareaproyecto">
+            <h1>Añade nuevos proyectos y trabaja en grupo</h1>
+            <p>Te permitirá compartir tu proyecto con varios usuarios y poder chatear con ellos.</p>
+        </div>
+        <div class="infotareaproyecto">
+            <img src="assets/img/visualizacionproyecto.png" alt="" srcset="">
+        </div>
+        <!-- End details for portfolio project 1 -->
+        <!-- Start details for portfolio project 2 -->
     </div>
     <!-- Portfolio section end -->
     <!-- About us section start -->
@@ -136,8 +104,6 @@
                             </li>
                         </ul>
                         <div class="mask">
-                            <h2>Copywriter</h2>
-                            <p>When you stop expecting people to be perfect, you can like them for who they are.</p>
                         </div>
                     </div>
                 </div>
@@ -158,8 +124,6 @@
                             </li>
                         </ul>
                         <div class="mask">
-                            <h2>Designer</h2>
-                            <p>When you stop expecting people to be perfect, you can like them for who they are.</p>
                         </div>
                     </div>
                 </div>
