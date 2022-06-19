@@ -37,6 +37,7 @@ Route::get('/home/proyectos/ver/{id}', [App\Http\Controllers\ProyectosController
 Route::post('/home/proyectos/editar/{id}', [App\Http\Controllers\ProyectosController::class, 'editarProyecto'])->name('editarProyecto');
 Route::post('/home/proyectos/addComment', [App\Http\Controllers\ProyectosController::class, 'addCommentProject'])->name('addCommentProject');
 Route::post('/home/proyectos/enviarcorreo',[App\Http\Controllers\ProyectosController::class, 'sendEmailInvitation'])->name('sendemailinvitation');
+Route::get('/home/proyectos/chat',[App\Http\Controllers\ProyectosController::class, 'startChat'])->name('iniciochat');
 
 
 

@@ -18,7 +18,8 @@
 
             <button class="btn btn-primary" style="float:right;" type="button" id="addComent"><img src="/assets/img/comentario.svg"></button>
             <button class="btn btn-primary" style="float:right; margin-right: 5px;" id="editarBoton"><img src="/assets/img/lapiz.svg"></button> 
-            <button type="button" class="btn btn-primary" style="float:right; margin-right: 5px;" id="chatBoton" data-toggle="modal" data-target="#modal-chat"><img src="/assets/img/chat.svg"></button>              
+            {{-- <button type="button" class="btn btn-primary" style="float:right; margin-right: 5px;" id="chatBoton" data-toggle="modal" data-target="#modal-chat"><img src="/assets/img/chat.svg"></button> --}}              
+            <a href="{{ route('iniciochat')}}" class="btn btn-primary" style="float:right; margin-right: 5px;" rel="pop-up"><img src="/assets/img/chat.svg"></a>
         </div>    
     </div>
 
@@ -76,7 +77,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modal-chat" tabindex="-1" data-backdrop="false" style="background-color:rgba(0, 0, 0, 0.5);" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="modal-chat" tabindex="-1" data-backdrop="false" style="background-color:rgba(0, 0, 0, 0.5);" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" >
         <div class="modal-header">
@@ -96,7 +97,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 @endsection
 
@@ -134,6 +135,15 @@
         });
 
         $('#today, #next').css("display","none");
+
+        
+        $("a[rel='pop-up']").click(function () {
+            let caracteristicas = "height=700,width=800,scrollTo,resizable=1,scrollbars=1,location=0";
+            nueva=window.open(this.href, 'Popup', caracteristicas);
+            return false;
+        });
+        
+
 
         $('.boton-cerrar-edit').on('click',function() {
             $('#editar').css('display','none');
