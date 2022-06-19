@@ -158,4 +158,12 @@ class ProyectosController extends Controller
             return redirect()->back()->withErrors('Ya ha invitado al usuario '.$usuario->name.' a '.$proyecto->name);
         }       
     }
+
+    public function startChat(Request $request){
+        $id=Auth::id();
+        $tareas = Tarea::where('id_user',$id)->get();
+        $tareasHoy=Tarea::where('id_user',$id)->whereDate('date_finally', '=', Carbon::now()->format('Y-m-d'))->get();
+        $proyectos = User::find($id)->project;
+        return view('vistaChat')->with(compact('tareas','tareasHoy','proyectos'));
+    }
 }
