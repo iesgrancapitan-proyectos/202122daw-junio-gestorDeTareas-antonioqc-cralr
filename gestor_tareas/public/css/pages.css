@@ -24,6 +24,10 @@
     justify-content: center;
 }
 
+#buscar{
+    width: 58%;
+}
+
 .btn-outline-success{
     color: #FFC107 !important;
     border-color: #FFC107 !important;
@@ -223,6 +227,10 @@ main{
 /*Tablet*/
 @media (min-width: 768px) and (max-width: 1023px) {
 
+    #buscar{
+        width: 30%;
+    }
+
     #sidebarCollapse{
         margin-right: 30% !important;
     }
@@ -287,6 +295,10 @@ main{
 
 
 @media (min-width: 1024px){
+
+    #buscar{
+        width: 30%;
+    }
 
     #buscadorInputProeyctos, #buscadorInput{
         margin-top: 0px !important;
