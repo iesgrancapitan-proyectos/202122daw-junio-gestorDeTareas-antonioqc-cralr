@@ -57,7 +57,7 @@
                 <input type="hidden" name="id_tarea" value="{{$tarea->id}}" style="display: none;">
                 <div class="form-group row input-form-comments mt-4">
                     <div class="col-sm-8 mb-2 input-comments" style="width: 50%;">
-                        <input type="text" class="form-control" name="nombre_comentario" id="nombre_comentario" placeholder="Nombre" required>
+                        <input type="text" class="form-control" name="nombre_comentario" id="nombre_comentario" placeholder="Asunto" required>
                     </div>
                 </div>
 
